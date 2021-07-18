@@ -1,0 +1,4 @@
+innerHTML viet vao trang HTML
+document.write()
+window.alert()
+console.log()

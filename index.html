@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="java.js"></script>
+</head>
+<body>
+<p id="dem1">JavaScript can change HTML content.</p>
+<button type="button" onclick='document.getElementById("dem1").innerHTML = "Hello JavaScript"';>click me</button>
+
+<p>JavaScript can change HTML attribute values.</p>
+<img id="light" src="/images/pic_bulboff.gif" style="width: 100px;">
+<button onclick="document.getElementById('light').src='/images/pic_bulbon.gif'">turn on</button>
+<button onclick="document.getElementById('light').src='/images/pic_bulboff.gif'">turn off</button>
+<!-- introduction -->
+<p id="introduction1">JavaScript can change the style of an HTML element.</p>
+<button type="button" onclick="document.getElementById('introduction1').style.fontSize='35px'">Click</button>
+<button type="button" onclick="document.getElementById('introduction1').style.display='none'">click hide</button>
+<button type="button" onclick='document.getElementById("introduction1").style.display="block"'>click show</button>
+<!-- Where to -->
+<p id="where1"></p>
+<script>
+document.getElementById('where1').innerHTML="My First Javascript";
+</script>
+<p>-----------</p>
+<p id="where2">Van ban</p>
+<button type="button" onclick="myFunction()">try it</button>
+<!-- <script src="https://www.w3schools.com/js/myScript.js"></script> -->
+<p>JS output-----------</p>
+<ul>
+	<li>innerHTML:</li>
+	<li>document.write()</li>
+	<li>window.alert(): tao hop canh bao</li>
+	<li>console.log(): hien thi du lieu </li>
+	<li>window.print(): in trang hien tai</li>
+</ul>
+<p id="output1"></p>
+<script type="text/javascript">document.getElementById("output1").innerHTML=5+6</script>
+<script type="text/javascript">document.write(6+6)</script>
+<p>su dung document.write() se xoa cac tai lieu HTML truoc do</p>
+<button type="button" onclick="document.write(5 + 6)">Try it</button>
+<img src="/images/output.png">
+<!-- <script type="text/javascript">alert("Hop canh bao window.alert()")</script> -->
+<p>Co the bo qua key: window </p>
+<button onclick="window.print()">In trang nay</button>
+
+<!-- <script type="text/javascript">window.print()</script> -->
+<p>Java statements------</p>
+<p>java variables-----</p>
+<p id="variables1"></p>
+<script type="text/javascript">
+	var a = 2;
+	var a;
+	document.getElementById('variables1').innerHTML= a</script>
+<p>x = '5' + 2 + 3 </p>
+<p id="variables2"></p>
+<script type="text/javascript">
+	x = '5' + 2 + 3
+	document.getElementById('variables2').innerHTML = x </script>
+<p>x = 2 + 3 + '5'</p>
+<p id="variables3"></p>
+<script type="text/javascript">
+	x = 2 + 3 + '5' 
+	document.getElementById('variables3').innerHTML = x </script>
+<p id="let1"></p>
+<script type="text/javascript">
+	try {
+		a = 2;
+		let a
+	} catch (err) {
+		document.getElementById('let1').innerHTML = err
+	}
+</script>
+<p>JS functions-----</p>
+<pre>document.getElementById('functions1').innerHTML=toCelsius(100)</pre>
+<p id="functions1"></p>
+<script>
+document.getElementById('functions1').innerHTML=toCelsius(100);
+</script>
+<pre>document.getElementById('functions1').innerHTML=toCelsius</pre>
+<p id="functions2"></p>
+<script>
+	document.getElementById('functions2').innerHTML=toCelsius;
+</script>
+<p>JS objects------</p>
+<p>2 cách</p>
+<ol>
+	<li>objectName.propertyName</li>
+	<li>objectName["proertyName"]</li>
+</ol>
+<pre>const person = {
+ 		firstName: "John",
+  		lastName: "Doe",
+  		age: 50,
+ 		eyeColor: "blue",
+ 		fullName: function objects() {return this.firstName +" "+lastName}</pre>
+ <p>document.getElementById('objects1').innerHTML=person.<b>fullName()</b>;</p> 
+<p id="objects1"></p>
+<script type="text/javascript">
+	const person = {
+ 		firstName: "John",
+  		lastName: "Doe",
+  		age: 50,
+ 		eyeColor: "blue",
+ 		fullName: function objects() {return this.lastName}
+	};
+	document.getElementById('objects1').innerHTML=person.fullName();
+</script>
+<p>JS events-----</p>
+<p>document.getElementById("id").innerHTML -> thay doi noi khac</p>
+<p>this.innerHTML -> thay doi chinh no</p>
+<button onclick="this.innerHTML= Date()">Thay doi chinh no</button>
+<p id="events1">ngay gio</p>
+<button onclick="displayDate()">Thay doi cho khac</button>
+<div onmouseover="this.style.backgroundColor='red'">Re chuot len dong nay</div>
+
+<p>JS string-----</p>
+<h3>Escape Character: \</h3>
+<p id='string1'></p>
+<p>
+	let text = "We are the so-called "Vikings" from the north."</p>
+	<p>document.getElementById('string1').innerHTML= text
+</p>
+<p>\b -> khoang trang</p>
+<p id="string2"></p>
+<script type="text/javascript">document.getElementById('string2').innerHTML="We are the \bso-called"</script>
+<p>\f -> ???</p>
+<p id="string3"></p>
+<script type="text/javascript">document.getElementById('string3').innerHTML="We are the \fso-called"</script>
+<p>\n -> new line</p>
+<p>\r -> ???</p>
+<p id="string4"></p>
+<script type="text/javascript">document.getElementById('string4').innerHTML="We are the \rso-called"</script>
+<p>\t -> Horizontal Tabulator???</p>
+<p>\v -> Vertical Tabulator???</p>
+<p>John: object & string -> == true  === false</p>
+<p>John: object & object -> == false === false</p>
+<p></p>
+<p id="string5"></p>
+<script type="text/javascript">
+	let x = "John"
+	let y = new String("John")
+	document.getElementById('string5').innerHTML= x==y
+</script>
+<h3>JS string Methods-----</h3>
+<p>- <b>slice(start, end)</b> -> string[start] - string[end-1] (string cu khong thay doi</p>
+<p>- substring(start, end) -> giong nhu slice. khong chap nhan (so am)</p>
+<p>- substr(start, length)</p>
+<pre>let str = "Apple, Banana, Kiwi";
+str.slice(1, 4)</pre>
+<p id="stringmethods1"></p>
+<script type="text/javascript">
+	let str = "Apple, Banana, Kiwi";
+	document.getElementById('stringmethods1').innerHTML=str.slice(1,4)
+</script>
+<pre>let str = "Apple, Banana, Kiwi";
+str.slice(-11, -6)</pre>
+<p>-> (so am) Lay tu phai sang trai.</p>
+<p id="stringmethods2"></p>
+<script type="text/javascript">
+	let str1 ="Apple, Banana, Kiwi";
+	document.getElementById('stringmethods2').innerHTML=str1.slice(-11,-6)
+</script>
+<pre>let str = "Apple, Banana, Kiwi";
+str.substr(7, 10)</pre>
+<p>-> 10, length tinh tu [start]</p>
+<p id="stringmethods3"></p>
+<script type="text/javascript">
+	let str3 ="Apple, Banana, Kiwi";
+	document.getElementById('stringmethods3').innerHTML=str3.substr(7,10)
+</script>
+<pre>let str = "Apple, Banana, Kiwi";
+str.substr(-4,3) </pre>
+<p>->(so am) tinh tu cuoi chuoi. length khong the la so am</p>
+<p id="stringmethods4"></p>
+<script type="text/javascript">
+	let str4 ="Apple, Banana, Kiwi";
+	document.getElementById('stringmethods4').innerHTML=str4.substr(-4,3)
+</script>
+<p>-<b>replace()</b>: khong thay doi string cu, tao ra string moi. Chi thay doi ket qua dau tien. Phan biet in HOA - thuong.</p>
+<pre>let text = "i'm Lam"
+let newtext = text("Lam", "master")</pre>
+<p id="stringmethods5"></p>
+<script type="text/javascript">
+	let text = "i'm Lam";
+	let newtext = text.replace("Lam", "master")
+	document.getElementById('stringmethods5').innerHTML=newtext;
+</script>
+<p>/.../i khong phan biet HOA-thuong</p>
+<pre>let text = "i'm Lam";
+let newText = text.replace(/lam/i, "master");</pre>
+<p id="stringmethods6"></p>
+<script type="text/javascript">
+	let text1 = "i'm Lam";
+	let newtext1 = text1.replace(/lam/i, "master")
+	document.getElementById('stringmethods6').innerHTML=newtext1;
+</script>
+<p>/.../g, thay the tat ca ket qua phu hop</p>
+<pre>let text = "Please visit MIcrosoft and Microsoft!";
+let newText = text.replace(/Microsoft/gi, "W3Schools");</pre>
+<p><b>Note</b>: lam sao thay the tat ca, khong ban biet in HOA-thuong?</p>
+<pre>	let text2 = "Please visit MIcrosoft and microsoft!";
+	let newtext2 = text2.replace(/microsoft/<b>gi</b>, "master")</pre>
+<p id="stringmethods7"></p>
+<script>
+	let text2 = "Please visit MIcrosoft and microsoft!";
+	let newtext2 = text2.replace(/microsoft/gi, "master")
+	document.getElementById('stringmethods7').innerHTML=newtext2;
+</script>
+<p>-<b>toUpperCase()</b></p>
+<p>-<b>toLowerCase()</b></p>
+<p>???question: thay doi Tu dau tien moi chu</p>
+<p>-<b>concat()</b>: them text 2 vao text 1, tao thanh text moi</p>
+<pre>let text1 = "Hello";
+let text2 = "World";
+let text3 = text1.concat(" ", text2);</pre>
+<p id="stringmethods8"></p>
+<script type="text/javascript">
+let text3 = "Hello";
+let text4 = "World";
+let text5 = text3.concat(" ",text4, text3);
+document.getElementById('stringmethods8').innerHTML=text5;
+</script>
+<p>-<b>trim()</b>: loai bo khoang trang 2 ben</p>
+<pre>let text = "       Hello World!        ";
+text.trim()    // Returns "Hello World!"</pre>
+<p><b>-padStart(x,y)</b></p>
+<p><b>-padEnd(x,y)</b></p>
+<pre>let text = "5";
+text.padStart(5,0)    // Returns 0005</pre>
+<p id="stringmethods9"></p>
+<script type="text/javascript">
+	let text6 = "5";
+	document.getElementById('stringmethods9').innerHTML=text6.padStart(5,0)
+</script>
+<pre>let text = "a";
+text.padEnd(4,0)     // Returns 5000</pre>
+<p id="stringmethods10"></p>
+<script type="text/javascript">
+	let text7 = "a";
+	document.getElementById('stringmethods10').innerHTML=text7.padEnd(4,0)
+</script>
+<p>Note: y la 1 con so. khong nhan chu</p>
+<p><b>-charAt()</b></p>
+<p><b>-charCodeAt()</b>: tra ra ma code Unicode cua ky tu</p>
+<pre>let text = "HELLO WORLD";
+text.charAt(0)           // Returns H</pre>
+<p id="stringmethods11"></p>
+<script type="text/javascript">
+	let text8 = "HELLO WORLD";
+	document.getElementById('stringmethods11').innerHTML=text8.charAt(0)
+</script>
+<p>text[0] giong text.charAt[0]. Khac, text[x] -> undefined. text.charAt[x] -> []</p>
+<p id="stringmethods12"></p>
+<script type="text/javascript">
+	let text9 = "HELLO WORLD";
+	document.getElementById('stringmethods12').innerHTML=text9[11]
+</script>
+<p><b>-split()</b>: chuyen chuoi thanh mang</p>
+<pre>text.split(",")          // Split on commas
+text.split(" ")          // Split on spaces
+text.split("|")          // Split on pipe
+</pre>
+<p id="stringmethods13"></p>
+<script type="text/javascript">
+	let text10 = "HELLO WORLD";
+	const myArray1 = text10.split(" ")
+	document.getElementById('stringmethods13').innerHTML= myArray1
+</script>
+
+<pre>text.split("")</pre>
+<p id="stringmethods14"></p>
+
+<script>
+let text12 = "Hello WORLD";
+const myArr = text12.split("");
+
+text13 = "";
+for (let i = 0; i < myArr.length; i++) {
+  text13 += myArr[i] + "<br>"
+}
+document.getElementById("stringmethods14").innerHTML = myArr;
+</script>
+<p>---Bai tap---</p>
+<p><b>-indexOf()</b>: tim vi tri cua ky tu trong chuoi</p>
+<pre>let txt = "abcdefghijklm";
+let pos = txt.indexOf("h");</pre>
+<h2>JavaScript String Search---</h2>
+<h4>.indexOf(0)</h4><p>vi tri dau tien cua cum tu</p>
+<h4>.lastIndexOf(0)</h4><p>vi tri lan xuat hien cuoi cung cua cum tu</p>
+<p>Note: return -1, neu khong tim thay</p>
+<p>Tham so thu 2</p>
+<pre>let str = "Please locate where 'locate' and locate occurs!";
+str.indexOf("locate", 8)    // Returns 7</pre>
+<p id="search1"></p>
+<script type="text/javascript">
+	let textSearch1 = "Please locate where 'locate' and locate occurs!";
+	document.getElementById('search1').innerHTML=textSearch1.indexOf("locate", 8)
+</script>
+<h4>.search()</h4>
+<p>giong voi indexOf()</p>
+<p>note: search() khong them doi so thu 2.</p>
+<p>not???: indexOf() khong manh me hon search()???</p>
+<h4>.match()</h4>
+<p>tim va tra ve 1 mang cac ket qua phu hop</p>
+<pre>let text = "The rain in SPAIN stays mainly in the plain";
+text.match(/ain/ig)    // Returns an array [ain,ain,ain]</pre>
+<p id="search2"></p>
+<script type="text/javascript">
+	let textSearch2 = "The rain in SPAIN stays mainly in the plain";
+	let textSearch2a = textSearch2.match(/ain/ig)
+	document.getElementById('search2').innerHTML=textSearch2a
+	// document.getElementById('search2').innerHTML=typeof textSearch2a;
+</script>
+<h4>.includes()</h4>
+<p>tra ve True neu co 1 gia tri dung</p>
+<pre>string.includes(searchvalue, start)</pre>
+<p>start co the co hoac khong</p>
+<pre>let text = "Hello world, welcome to the universe.";
+text.includes("world", 12)    // Returns false</pre>
+<p id="search3"></p>
+<script type="text/javascript">
+	let textSearch3 = "Hello world, welcome to the universe.";
+	document.getElementById('search3').innerHTML=textSearch3.includes("world",12)
+</script>
+<h4>.startsWith()</h4>
+<p>Tra ve True khi chuoi bat dau bang ky tu chi dinh</p>
+<pre>string.startsWith(searchvalue, start)</pre>
+<p>start: co the co hoac khong</p>
+<pre>let text = "Hello world, welcome to the universe.";
+
+text.startsWith("world", 6)    // Returns true</pre>
+<h4>.endsWith()</h4>
+<p>tuong tu, ket thuc cuoi chuoi</p>
+<pre>string.endswith(searchvalue, length)</pre>
+<p>length chieu dai. khac voi startWith() dung index</p>
+<h2>Template Strings----</h2>
+<pre>let text = `He's often called "Johnny"`;</pre>
+<pre>let text =
+`The quick
+brown fox
+jumps over
+the lazy dog`;</pre>
+<p id="templates1"></p>
+<script type="text/javascript">
+	let textTemplates1 = `The quick
+brown fox
+jumps over
+the lazy dog`;
+	document.getElementById('templates1').innerHTML=textTemplates1;
+</script>
+<h4>${firstName}, ${lastName} Nội suy chuỗi</h4>
+<pre>let firstName = "John";
+let lastName = "Doe";
+let text = `Welcome ${firstName}, ${lastName}`;</pre>
+<p id="templates2"></p>
+<script type="text/javascript">
+	let textFirstName = "John";
+	let textLastName = "Doe";
+	let textFull = `Welcome ${textFirstName} ${textLastName}`;
+	document.getElementById('templates2').innerHTML = textFull
+</script>
+<pre>let price = 10;
+let VAT = 0.25;
+
+let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;</pre>
+<p id="templates3"></p>
+<script type="text/javascript">
+	let templatePrice = 10;
+	let templateVAT = 0.25;
+	let templateTotal = `Total: ${(templatePrice*(1+templateVAT)).toFixed(2)}`
+	document.getElementById('templates3').innerHTML=templateTotal
+</script>
+<p><b>Note:</b>toFixed(2) so thap phan</p>
+
+< pre>let header = "Templates Literals";
+let tags = ["template literals", "javascript", "es6"];
+
+let html = `< h2>${header}< /h2>< ul>`;
+for (const x of tags) {
+  html += `< li>${x}< /li>`;
+}
+
+html += `< /ul>`;< /pre>
+<p id="templates4"></p>
+<script type="text/javascript">
+	let header = "Templates Literals";
+	let tags = ["template literals", "javascript", "es6", "string"];
+	let html = `<h3>${header}</h3><ul>`;
+	for ( let x of tags) {
+		html+= `<li>${x}</li>`
+	}
+	html += `</ul>`
+	document.getElementById('templates4').innerHTML = html
+</script>
+<h2>JS Numbers---</h2>
+<p>Cong voi so thap phan khong dung 100</p>
+
+<h2>JS Numbers---</h2>
+<p>Cong voi so thap phan khong dung 100%</p>
+<pre>let x = 0.2 + 0.1;         // x will be 0.30000000000000004</pre>
+<p>giai phap</p>
+<pre>let x = (0.2 * 10 + 0.1 * 10) / 10;       // x will be 0.3</pre>
+<p>String number, thuc hien toan tu, js se chuyen thanh so</p>
+<pre>let x = "100";
+let y = "10";</pre>
+<p> Tru, nhan, chia. Nhung cong khong duoc</p>
+<pre>let z = x + y;       // z will not be 110 (It will be 10010)</pre>
+<p><b>NaN</b> khong phai la 1 so hop le</p>
+<h4>isNaN()</h4>
+<p>Tim ra phai la so khong</p>
+<pre>let x = 100 / "Apple";
+isNaN(x);               // returns true because x is Not a Number</pre>
+<h4>Infinity (-Infinity)</h4>
+<p>gia tri vuot ra ngoai so lon nhat js</p>
+<h2>Js number methods----</h2>
+<h4>.toString()</h4>
+<ul>
+	<li>x.toString()</li>
+	<li>(123).toString()</li>
+	<li>(100+23).toString()</li>
+</ul>
+<p><b>Note</b>: toString(2)->2bit, toString(8)->8bit, toString(16)->16bit</p>
+<p id="numberMethods1"></p>
+<script type="text/javascript">
+	let textNumberMethods1a = 100;
+	let textNumberMethods1b = 23;
+	document.getElementById('numberMethods1').innerHTML=(textNumberMethods1a + textNumberMethods1b).toString()
+</script>
+<h4>.toExponential()</h4>
+<p>Tra ra chuoi. so luy thua</p>
+<pre>let x = 9.656;
+x.toExponential();     // returns 9.656e+0
+x.toExponential(4);     // returns 9.6560e+0
+x.toExponential(6);     // returns 9.656000e+0</pre>
+<h4>.toFixed()</h4>
+<p>Tra ra string. so thap phan o sau</p>
+<pre>let x = 9.656;
+x.toFixed(0);           // returns 10
+x.toFixed(2);           // returns 9.66
+x.toFixed(4);           // returns 9.6560</pre>
+<h4>.toPrecision()</h4>
+<p>tra ra string. Dung ky tu so luong con so</p>
+<pre>let x = 19.656;
+x.toPrecision();        // returns 19.656
+x.toPrecision(3);       // returns 19.7
+x.toPrecision(4);       // returns 19.66
+x.toPrecision(6);       // returns 19.6560</pre>
+<p><b>Note</b>: so thap phan nhieu hon 14. se bi sai</p>
+<h4>valueOf()</h4>
+<p>Tra ve 1 con so nguyen thuy</p>
+<p><b>Note</b>: string ("123"), number, object (new number(123)) tra ve number</p>
+<p><b>Note</b>: .toString(x) co tham so, .valueOf() ko co tham so</p>
+<h4>Number()</h4>
+<p>tra ve 1 so</p>
+<pre>Number(new Date("2017-09-30"));    // returns 1506729600000</pre>
+<p><b>Note</b>:tra Date ve so', bat dau tu 1.1.1970</p>
+<h4>parseInt()</h4>
+<p><b>parse</b>:phan tich. tra ve so nguyen, so dau tien</p>
+<h4>parseFloat()</h4>
+<p>phan tich string va tra ve so (bao gom so thap phan)</p>
+<pre>parseFloat("10");        // returns 10
+parseFloat("10.33");     // returns 10.33
+parseFloat("10 20 30");  // returns 10
+parseFloat("10 years");  // returns 10
+parseFloat("years 10");  // returns NaN</pre>
+<ul>
+	<li><b>Number.MAX_VALUE</b></li>
+	<li><b>Number.MIN_VALUE</b></li>
+	<li><b>POSITIVE_INFINITY va NEGATIVE_INFINITY</b></li>
+	<li><b>NaN - Not a Number</b></li>
+</ul>
+<h2>JavaScript Arrays----</h2>
+<pre>const cars = [];
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";</pre>
+<pre>const person = {firstName:"John", lastName:"Doe", age:46};</pre>
+<h4>length</h4>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.length;   // Returns 4</pre>
+<h4>Looping Array </h4>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let fLen = fruits.length;
+
+text = "< ul>";
+for (let i = 0; i < fLen; i++) {
+  text += "< li>" + fruits[i] + "< /li>";
+}
+text += "< /ul>";</pre>
+<p id="arrays1"></p>
+<script type="text/javascript">
+	const textArrays1a = ["Banana", "Orange", "Apple", "Mango"];
+	let textArrays1b = textArrays1a.length;
+	let textArrays1c ="<ul>"
+	for (let i =0;i<textArrays1a.length;i++) {
+		textArrays1c += "<li>"+textArrays1a[i] +"</li>"
+	}
+	textArrays1c += "</ul>"
+	document.getElementById('arrays1').innerHTML=textArrays1c
+</script>
+<h4>.forEach()</h4>
+<p>Goi ham 1 lan cho 1 phan tu trong mang</p>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+let text = "< ul>";
+fruits.forEach(myFunction);
+text += "< /ul>";
+
+function myFunction(value) {
+  text += "< li>" + value + "< /li>";
+}</pre>
+<p><b>Note</b></p>
+<pre>array.forEach(function(currentValue, index, arr), thisValue)</pre>
+<h4>Adding Array</h4>
+<pre>fruits.push("Lemon");</pre>
+<pre>fruits[fruits.length] = "lemon"</pre>
+<h4>.isArray()</h4>
+<h4>instanceof</h4>
+<p>Kiem tra co phai la mang array khong?</p>
+<pre>Array.isArray(fruits);   // returns true</pre>
+<pre>fruits instanceof Array</pre>
+
+<h2>JavaScript Array Methods---</h2>
+<h4>.toString()</h4>
+<p>giong number methods</p>
+<h4>.join()</h4>
+<p>nối các phần tử thành chuỗi </p>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.join(" * ");</pre>
+<p id="textArraysMethods1"></p>
+<script type="text/javascript">
+	const textArraysMethods1a = ["Banana", "Orange", "Apple", "Mango"];
+	document.getElementById('textArraysMethods1').innerHTML=textArraysMethods1a.join(" * ")
+</script>
+<h4>.pop()</h4>
+<p>Lay' phan tu cuoi ra khoi array</p>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let x = fruits.pop();</pre>
+<p id="textArraysMethods2A"></p>
+<p id="textArraysMethods2B"></p>
+<script type="text/javascript">
+	const textArraysMethods2a = ["Banana", "Orange", "Apple", "Mango"];
+	let textArraysMethods2b = textArraysMethods2a.pop();
+	document.getElementById('textArraysMethods2A').innerHTML="fruits=" + textArraysMethods2a;
+	document.getElementById('textArraysMethods2B').innerHTML="x="+textArraysMethods2b;
+</script>
+<h4>.push()</h4>
+<p>Them 1 phan tu vao cuoi mang. Va tra ve length</p>
+<pre>
+	const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let x = fruits.push("Kiwi");   //  x = 5
+</pre>
+<h4>.shift()</h4>
+<p>Giong .pop(). Nhung lay phan tu dau tien ra</p>
+<h4>.unshift()</h4>
+<p>Them vao array phan tu dau tien. tra ra length giong </p>
+
+<button onclick="textArraysMethods3b()">Them "Lemon"</button>
+<p id="textArraysMethods3A"></p>
+<script type="text/javascript">
+	let textArraysMethods3a = ["Banana", "Orange", "Apple", "Mango"]
+	document.getElementById('textArraysMethods3A').innerHTML=textArraysMethods3a;
+	function 	textArraysMethods3b() {
+		textArraysMethods3a.unshift("Lemon");
+		document.getElementById('textArraysMethods3A').innerHTML=textArraysMethods3a;
+	}
+</script>
+<h4>delete</h4>
+<pre>delete fruits[0]</pre>
+<p>Tao ra phan tu trong. Khong khuyen khich su dung</p>
+<h4>.splice(first, second, add1, add2,...)</h4>
+<ul>
+	<li>first: vi tri de add vao. theo index</li>
+	<li>second: loại bao nhiêu phân tử trong array hiện tại</li>
+	<li>add1, add2... ca phan tu them vao</li>
+</ul>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(2, 0, "Lemon", "Kiwi");</pre>
+<p><b>Note:</b> co the dung <b>splice()</b> thay the cho <b>delete</b>. Vi <b>thay doi</b> array hien tai</p>
+<h4>.concat()</h4>
+<p>Hop nhat 2 mang</p>
+<pre>const arr1 = ["Cecilie", "Lone"];
+const arr2 = ["Emil", "Tobias", "Linus"];
+const arr3 = ["Robin", "Morgan"];
+const myChildren = arr1.concat(arr2, arr3);</pre>
+<p><b>Note</b>: khong lam thay doi 2 mang cu. Tao 2 mang moi.</p>
+<h4>.slice(start,end)</h4>
+<p>lay 1 phan tu ra khoi mang cu, tra ra mang khong co phan tu do. nhung <b>khong thay doi</b> mang goc'</p>
+<ul>
+	<li>start: lay tu <b>array[start]</b></li>
+	<li>end: den phần tử <b>array[end-1]</b>. So luong phan tu lay (end - start)</li>
+</ul>
+<pre>const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+const citrus = fruits.slice(fruits.indexOf("Apple"));
+document.getElementById("demo").innerHTML = fruits + "< br>< br>" + citrus;</pre>
+<p>Banana,Orange,Lemon,Apple,Mango</p>
+<p>Apple,Mango</p>
+</body>
+</html>
