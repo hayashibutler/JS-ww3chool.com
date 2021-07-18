@@ -597,5 +597,169 @@ const citrus = fruits.slice(fruits.indexOf("Apple"));
 document.getElementById("demo").innerHTML = fruits + "< br>< br>" + citrus;</pre>
 <p>Banana,Orange,Lemon,Apple,Mango</p>
 <p>Apple,Mango</p>
+
+<h2>JavaScript Sorting Arrays---</h2>
+<h4>.sort()</h4>
+<h4>.reverse()</h4>
+<p>sap xep array tho trinfh tu nguoc lai.</p>
+<p>De sap xep theo thu tu giam dan. sort()-> reverse()</p>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.sort();        // First sort the elements of fruits
+fruits.reverse();     // Then reverse the order of the elements
+</pre>
+<button onclick="textSortArray1a()">Sort</button>
+<p id="sortArray1"></p>
+<script type="text/javascript">
+		const textSortArray1 = ["Banana", "Orange", "Apple", "Mango"]
+		document.getElementById('sortArray1').innerHTML=textSortArray1;
+		function textSortArray1a() {
+			textSortArray1.sort()
+			textSortArray1.reverse()
+			document.getElementById('sortArray1').innerHTML=textSortArray1;
+		}
+</script>
+<h4>Numeric Sort</h4>
+<p>sort number se sai. 25 > 100. vi sort tinh chat so sanh chuoi</p>
+<p><b>-tang dan</b></p>
+<pre>const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b});</pre>
+<p><b>-giam dan</b></p>
+<pre>const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return b - a});</pre>
+<button onclick="textSortArray2b()">Sort tang</button>
+<button onclick="textSortArray2c()">Sort giam</button>
+<p id="sortArray2"></p>
+<script type="text/javascript">
+		const textSortArray2a = [40, 100, 1, 5, 25, 10]
+		document.getElementById('sortArray2').innerHTML=textSortArray2a;
+		function textSortArray2b() {
+		textSortArray2a.sort(function(a,b){return a-b})
+		document.getElementById('sortArray2').innerHTML=textSortArray2a;
+		}
+		function textSortArray2c() {
+		textSortArray2a.sort(function(a,b){return b-a})
+		document.getElementById('sortArray2').innerHTML=textSortArray2a;
+		}
+</script>
+<h4>sort voi Math.random()</h4>
+<pre>const points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return 0.5 - Math.random()});</pre>
+<button onclick="textSortArray3b()">Try it</button>
+<p id="sortArray3"></p>
+
+<script>
+const textSortArray3a = [40, 100, 1, 5, 25, 10];
+document.getElementById("sortArray3").innerHTML = textSortArray3a;  
+
+function textSortArray3b() {
+  textSortArray3a.sort(function(a, b){return 0.5 - Math.random()});
+  document.getElementById("sortArray3").innerHTML = textSortArray3a;
+}
+</script>
+<h4>tim MAX va MIN</h4>
+<p>Co the dung sort. Sau do lay gia tri array[0] va array[length-1]</p>
+<h4>Math.max()</h4>
+<pre>function myArrayMax(arr) {
+  return Math.max.apply(null, arr);
+}</pre>
+<h4>Math.min()</h4>
+function myArrayMin(arr) {
+  return Math.min.apply(null, arr);
+}
+<pre>< script>
+const points = [40, 100, 1, 5, 25, 10];
+document.getElementById("demo").innerHTML = myArrayMin(points);
+
+function myArrayMin(arr) {
+  return Math.min.apply(null, arr);
+}
+</ script>
+</pre>
+<h4>Sorting Object </h4>
+<pre>const cars = [
+  {type:"Volvo", year:2016},
+  {type:"BMW", year:2001},
+  {type:"Saab", year:2010}
+];</pre>
+<p>Xuat ra man hinh </p>
+<pre>function displayCars() {
+  document.getElementById("demo").innerHTML =
+  cars[0].type + " " + cars[0].year + "<br>" +
+  cars[1].type + " " + cars[1].year + "<br>" +
+  cars[2].type + " " + cars[2].year;
+}</pre>
+<h4>+ number trong object</h4>
+<pre>cars.sort(function(a, b){return a.year - b.year});</pre>
+<button onclick="textSortArray4b()">sort year tang</button>
+<button onclick="textSortArray4c()">sort year giam</button>
+<p id="sortArray4"></p>
+<script type="text/javascript">
+	const textSortArray4 = [
+  {type:"Volvo", year:2016},
+  {type:"BMW", year:2001},
+  {type:"Saab", year:2010}
+];
+	textSortArray4a();
+
+	function textSortArray4a() {
+		document.getElementById('sortArray4').innerHTML=
+		"type: "+textSortArray4[0].type + ", year: " +textSortArray4[0].year +"<br>" +
+		"type: "+textSortArray4[1].type + ", year: " +textSortArray4[1].year +"<br>" +
+		"type: "+textSortArray4[2].type + ", year: " +textSortArray4[2].year
+	}
+	function textSortArray4b(){
+		textSortArray4.sort(function(a,b) {return a.year - b.year});
+		textSortArray4a();
+	}
+	function textSortArray4c(){
+	textSortArray4.sort(function(a,b) {return b.year - a.year});
+	textSortArray4a();
+	}
+</script>
+<h4>+ text trong object</h4>
+<pre>cars.sort(function(a, b){
+  let x = a.type.toLowerCase();
+  let y = b.type.toLowerCase();
+  if (x < y) {return -1;}
+  if (x > y) {return 1;}
+  return 0;
+});</pre>
+<button onclick="textSortArray5b()">sort year tang</button>
+<button onclick="textSortArray5c()">sort year giam</button>
+<p id="sortArray5"></p>
+<script type="text/javascript">
+	const textSortArray5 = [
+  {type:"Volvo", year:2016},
+  {type:"BMW", year:2001},
+  {type:"Saab", year:2010}
+];
+	textSortArray5a();
+	function textSortArray5a(){
+		document.getElementById('sortArray5').innerHTML=
+			"type: "+textSortArray5[0].type+", year: "+textSortArray5[0].year+"<br>"+
+			"type: "+textSortArray5[1].type+", year: "+textSortArray5[1].year+"<br>"+
+			"type: "+textSortArray5[2].type+", year: "+textSortArray5[2].year
+	}
+	function textSortArray5b(){
+		textSortArray5.sort(function(a,b) {
+			let x = a.type.toLowerCase();
+			let y = b.type.toLowerCase();
+			if (x<y) {return -1}
+			if (x>y) {return 1}
+			return 0;
+		})
+		textSortArray5a();
+	}
+	function textSortArray5c(){
+		textSortArray5.sort(function(a,b) {
+			let x = a.type.toLowerCase();
+			let y = b.type.toLowerCase();
+			if (x<y) {return 1}
+			if (x>y) {return -1}
+			return 0;
+		})
+		textSortArray5a();
+	}	
+</script>
 </body>
 </html>
