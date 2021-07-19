@@ -724,8 +724,8 @@ function myArrayMin(arr) {
   if (x > y) {return 1;}
   return 0;
 });</pre>
-<button onclick="textSortArray5b()">sort year tang</button>
-<button onclick="textSortArray5c()">sort year giam</button>
+<button onclick="textSortArray5b()">sort type tang</button>
+<button onclick="textSortArray5c()">sort type giam</button>
 <p id="sortArray5"></p>
 <script type="text/javascript">
 	const textSortArray5 = [
@@ -761,5 +761,329 @@ function myArrayMin(arr) {
 		textSortArray5a();
 	}	
 </script>
+<h2>JavaScript Array Iteration---</h2>
+<h4>.forEach()</h4>
+<p>Goi function cho tung phan tu</p>
+<pre>const numbers = [45, 4, 9, 16, 25];
+let txt = "";
+numbers.forEach(myFunction);
+
+function myFunction(value, index, array) {
+  txt += value + "<br>";
+}</pre>
+<p id="arrayIteration1"></p>
+<script type="text/javascript">
+	const textArrayIteration1a = [45, 4, 9, 16, 25];
+	let textArrayIteration1b ="";
+	textArrayIteration1a.forEach(textArrayIteration1c);
+	document.getElementById('arrayIteration1').innerHTML=textArrayIteration1b
+	function textArrayIteration1c(value, index, array) {
+		textArrayIteration1b += value +"<br>"
+	}
+</script>
+<pre>function myFunction(value) {}</pre>
+<h4>.map()</h4>
+<p>Tao ra 1 mang moi, sau khi thuc hien function</p>
+<pre>const numbers1 = [45, 4, 9, 16, 25];
+const numbers2 = numbers1.map(myFunction);
+
+function myFunction(value, index, array) {
+  return value * 2;
+}</pre>
+<p id="arrayIteration2"></p>
+<script type="text/javascript">
+	const textArrayIteration2a = [45, 4, 9, 16, 25];
+	const textArrayIteration2b = textArrayIteration2a.map(textArrayIteration2c);
+	document.getElementById('arrayIteration2').innerHTML=textArrayIteration2b;
+	function textArrayIteration2c(value, index, array){
+		return value*2
+	}
+</script>
+<p><u>1 cach khac</u> voi .forEach()</p>
+<pre>const numbers2 = [];
+numbers1.forEach(myFunction);
+
+document.getElementById('demo').innerHTML=numbers2;
+function myFunction(value, index, array){
+	numbers2.push(value*2)
+	}</pre>
+<p id="arrayIteration3"></p>
+<script>
+	const textArrayIteration3a = [45, 4, 9, 16, 25];
+	const textArrayIteration3b = [];
+	textArrayIteration3a.forEach(textArrayIteration3c);
+	document.getElementById('arrayIteration3').innerHTML=textArrayIteration3b;
+	function textArrayIteration3c(value, index, array){
+		textArrayIteration3b.push(value*2)
+	}
+</script>
+<p><b>Nhan xet</b>: .map(0 tao truc tiep 1 mang moi, dua tren mang cu. .forEach(), can goi mang moi tro'ng, sau += vao mang moi</p>
+<h4>.filter()</h4>
+<p>Tao ra mang moi, voi cac phan tu thoa dieu kien test</p>
+<pre>const numbers = [45, 4, 9, 16, 25];
+const over18 = numbers.filter(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}</pre>
+<h4>.reduce()</h4>
+<p>Thuc hien 1 function, tra ve 1 con so chung cua mang</p>
+<pre>const numbers = [45, 4, 9, 16, 25];
+let sum = numbers.reduce(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + value;
+}</pre>
+<p id="arrayIteration4"></p>
+<script type="text/javascript">
+	const textArrayIteration4a = [45, 4, 9, 16, 25];
+	let textArrayIteration4b = textArrayIteration4a.reduce(textArrayIteration4c);
+	document.getElementById('arrayIteration4').innerHTML="ket qua: "+ textArrayIteration4b
+	function textArrayIteration4c(total, value,index,array) {
+		return total + value;
+	}
+</script>
+<ul>
+	<li>total: la value dau tien. array[0]</li>
+	<li>value: bat dau tu array[1]...</li>
+	<li>index: chi so, 0, 1, 2, 3...  </li>
+</ul>
+<pre>function myFunction(total, value, index, array) {
+  return total + index;
+}</pre>
+<p id="arrayIteration5"></p>
+<script type="text/javascript">
+	const textArrayIteration5a = [45, 4, 9, 16, 25];
+	let textArrayIteration5b = textArrayIteration5a.reduce(textArrayIteration5c);
+	document.getElementById('arrayIteration5').innerHTML="ket qua: "+ textArrayIteration5b
+	function textArrayIteration5c(total, value,index,array) {
+		return total + index;
+	}
+</script>
+<p><b>Note</b>: total va value la bat buoc. index, array co the bo qua</p>
+<p><b>Co the nhan gia tri ban dau thay cho array[0]</b></p>
+<pre>let sum = numbers.reduce(myFunction, 100);</pre>
+<h4>.reduceRight()</h4>
+<p>tuong tu .reduce(): nhung bat dau tu phai</p>
+<ul>
+	<li>total: bat dau tu gia tri cuoi. array[length-1]</li>
+	<li>value,index: bat dau tu vi tri array[length -2].</li>
+</ul>
+<pre>const numbers = [45, 4, 9, 16, 25];
+let sum = numbers1.reduceRight(myFunction);
+
+function myFunction(total, value, index, array) {
+  return total + index;
+}</pre>
+<p id="arrayIteration6"></p>
+<script type="text/javascript">
+	const textArrayIteration6a = [45, 4, 9, 16, 25];
+	let textArrayIteration6b = textArrayIteration6a.reduceRight(textArrayIteration6c);
+	document.getElementById('arrayIteration6').innerHTML="ket qua: "+ textArrayIteration6b
+	function textArrayIteration6c(total, value,index,array) {
+		return total + index;
+	}
+</script>
+<p><b>Co the bat dau voi 1 so thay cho array[length-1]</b></p>
+<pre>let sum = numbers1.reduceRight(myFunction, 25);</pre>
+<p>Bat dau tu ngoai mang, luc nay co them array[length-1] (i =4) cong them</p>
+<p id="arrayIteration7"></p>
+<script type="text/javascript">
+	const textArrayIteration7a = [45, 4, 9, 16, 25];
+	let textArrayIteration7b = textArrayIteration6a.reduceRight(textArrayIteration7c, 25);
+	document.getElementById('arrayIteration7').innerHTML="ket qua: "+ textArrayIteration7b
+	function textArrayIteration7c(total, value,index,array) {
+		return total + index;
+	}
+</script>
+<h4>.every()</h4>
+<p>Kiem tra tat ca thanh phan trong mang co thoa dieu kien khong?</p>
+<pre>const numbers = [45, 4, 9, 16, 25];
+let allOver18 = numbers.every(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}</pre>
+<h4>.some()</h4>
+<p>Kiem tra 1 so phan tu co thoa dieu kien text khong</p>
+<p>Neu co it nhat 1 phan tu thoa dieu kien, se tra ra True</p>
+<h4>.indexOf()</h4>
+<p>Tim va tra ve index dau tien trung khop</p>
+<p>Cu phap</p>
+<pre>array.indexOf(item, start)</pre>
+<ul>
+	<li>item: ky tu can tim</li>
+	<li>start: vi tri index khop dau tien</li>
+</ul>
+<pre>const fruits = ["Apple", "Orange", "Apple", "Mango"];
+let position = fruits.indexOf("Apple",2);</pre>
+<p id="arrayIteration8"></p>
+
+<script>
+const textArrayIteration8a = ["Apple", "Orange", "Apple", "Mango", "Apple"];
+let textArrayIteration8b = textArrayIteration8a.indexOf("Apple",2);
+
+document.getElementById("arrayIteration8").innerHTML = "Apple is found in index " + textArrayIteration8b;
+</script>
+<h4>.lastIndexOf()</h4>
+<p>Tra ve vi tri index cuoi cung</p>
+<p>cu phap</p>
+<pre>array.lastIndexOf(item, start)</pre>
+<ul><li>start: so am, bat tim tu ben phai</li></ul>
+<pre>const fruits = ["Apple", "Orange", "Apple", "Mango","Apple"];
+let position = fruits.lastIndexOf("Apple",-2);</pre>
+<p id="arrayIteration9"></p>
+<script>
+const textArrayIteration9a = ["Apple", "Orange", "Apple", "Mango","Apple"];
+let textArrayIteration9b = textArrayIteration9a.lastIndexOf("Apple",-2);
+document.getElementById("arrayIteration9").innerHTML = "Apple is found in position " + textArrayIteration9b;
+</script>
+<h4>.includes()</h4>
+<p>kiem tra 1 ky tu co nam trong mang hay khong?</p>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.includes("Mango"); // is true</pre>
+<p><b>Note</b>: cho phep kiem tra NaN</p>
+<h4>.find()</h4>
+<p>Tra 1 phan tu dau tien thoa dieu kien trong function</p>
+<pre>const numbers = [4, 9, 16, 25, 29];
+let first = numbers.find(myFunction);
+
+function myFunction(value, index, array) {
+  return value > 18;
+}</pre>
+<h4>.findIndex()</h4>
+<p>Tra ve index cuar phan tu dau tien thoa dieu kien</p>
+<h4>.from()</h4>
+<pre>Array.from("ABCDEFG")   // Returns [A,B,C,D,E,F,G]</pre>
+<h4>.keys()</h4>
+<p>tra ve index? cua mang</p>
+<pre>const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.keys();
+
+for (let x of keys) {
+  text += x + "<br>";
+}</pre>
+<p>??? code khong chay dc</p>
+<p id="demo"></p>
+
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+const keys = fruits.keys();
+
+let text = "";
+for (let x of keys) {
+  text += x + "<br>";
+}
+
+document.getElementById("demo").innerHTML = text;
+</script>
+<h2>JavaScript Date Objects---</h2>
+<pre>const d = new Date();</pre>
+<button onclick="textDateObject1a()">Click date</button>
+<p id="dateObject1">Ngay may?</p>
+<script type="text/javascript">
+	function textDateObject1a() {
+		const textDateObject1b = new Date()
+		document.getElementById('dateObject1').innerHTML=textDateObject1b
+	}
+</script>
+<h4>Cach cach tao ngay</h4>
+<pre>new Date()
+new Date(year, month, day, hours, minutes, seconds, milliseconds)
+new Date(milliseconds)
+new Date(date string)</pre>
+<h4>new Date(year, month, day, hours, minutes, seconds, milliseconds)</h4>
+<pre>const d = new Date(2018, 11, 24, 10, 33, 30);</pre>
+<p><b>Note</b>: Thang: tu 0->11. co the chi nhap duoi < 7 so</p>
+
+<p id="dateObject2"></p>
+<script>
+const textDateObject2a = new Date(2018, 11, 24, 10);
+document.getElementById("dateObject2").innerHTML = textDateObject2a;
+</script>
+<p><b>Note</b>: Neu bo qua thang, JS xem do la milliseconds</p>
+<p id="dateObject3"></p>
+<script>
+const textDateObject3a = new Date(2018);
+document.getElementById("dateObject3").innerHTML = textDateObject3a;
+</script>
+<p><b>Note</b>: Neu nam chi co 1-2 chu so, hieu la 19xx</p>
+<pre>const d = new Date(99, 11, 24);</pre>
+<p id="dateObject4"></p>
+<script>
+const textDateObject4a = new Date(99, 11, 24);
+document.getElementById("dateObject4").innerHTML = textDateObject4a;
+</script>
+<h4>new Date(dateString)</h4>
+<pre>const d = new Date("October 13, 2014 11:13:00");</pre>
+<h4>new Date(milliseconds)</h4>
+<p>JS quan ly ngay gio bang milisecond. bat dau Thu Jan 01 1970 08:00:00 GMT+0800 (Indochina Time)</p>
+<h4>toUTCString()</h4>
+<p>Chuyen thanh dinh dang chuan</p>
+<p id="dateObject5"></p>
+
+<script>
+const textDateObject5a = new Date();
+document.getElementById("dateObject5").innerHTML = textDateObject5a.toUTCString();
+</script>
+<h4>toDateString()</h4>
+<p>Chuyen sang de doc</p>
+<p id="dateObject6"></p>
+
+<script>
+const textDateObject6 = new Date();
+document.getElementById("dateObject6").innerHTML = textDateObject6.toDateString();
+</script>
+<h4>toISOString()</h4>
+<p id="dateObject7"></p>
+<script>
+const textDateObject7a = new Date();
+document.getElementById("dateObject7").innerHTML = textDateObject7a.toISOString();
+</script>
+<h2>JavaScript Date Formats---</h2>
+<pre>ISO Date	"2015-03-25" (The International Standard)
+Short Date	"03/25/2015"
+Long Date	"Mar 25 2015" or "25 Mar 2015"</pre>
+<p>ISO la dinh dang chuan tat ca duyet trinh</p>
+<pre>const d = new Date("2015");</pre>
+<p id="dateObject8"></p>
+<script>
+const textDateObject8a = new Date("2015");
+document.getElementById("dateObject8").innerHTML = textDateObject8a;
+</script>
+<pre>const d = new Date(2015);</pre>
+<p id="dateObject9"></p>
+<script>
+const textDateObject9a = new Date(2015);
+document.getElementById("dateObject9").innerHTML = textDateObject9a;
+</script>
+<h4>ISO Dates (Date-Time)</h4>
+<pre>const d = new Date("2015-03-25T12:00:00Z");</pre>
+<ul>
+	<li>T: phan tach ngay va gio</li>
+	<li>Z: viet tat UTC</li>
+</ul>
+<p><b>Note</b>: co the doi Z thanh +/-HH:MM</p>
+<pre>const d = new Date("2015-03-25T12:00:00-06:30");</pre>
+<h4>Short Dates.</h4>
+<p>"MM/DD/YYYY"</p>
+<pre>const d = new Date("03/25/2015");</pre>
+<p><b>Note</b>: 1 so duyet trinh, se hien loi neu ngay/thang thieu so 0 phia truoc</p>
+<p>1 so cach viet sau, co the bi loi</p>
+<pre>const d = new Date("2015-3-25");  // thieu so 0</pre>
+<pre>const d = new Date("2015/03/25"); //YYYY/MM/DD ->YYYY-MM-DD</pre>
+<pre>const d = new Date("25-03-2015"); //DD-MM-YYYY ->YYYY-MM-DD</pre>
+<h4>Long Dates.</h4>
+<p>"MMM DD YYYY"</p>
+<pre>const d = new Date("Mar 25 2015");</pre>
+<pre>const d = new Date("25 Mar 2015");</pre>
+<pre>const d = new Date("January 25 2015");</pre>
+<pre>const d = new Date("Jan 25 2015");</pre>
+<pre>const d = new Date("JANUARY, 25, 2015");</pre>
+<h4>Date.parse()</h4>
+<p>Chuyen thanh milliseconds</p>
+<pre>let msec = Date.parse("March 21, 2012");
+document.getElementById("demo").innerHTML = msec;</pre>
+
 </body>
 </html>
