@@ -1084,6 +1084,125 @@ document.getElementById("dateObject9").innerHTML = textDateObject9a;
 <p>Chuyen thanh milliseconds</p>
 <pre>let msec = Date.parse("March 21, 2012");
 document.getElementById("demo").innerHTML = msec;</pre>
+<h2>JavaScript Get Date Methods----</h2>
+<pre>Method	Description
+getFullYear()	Get the year as a four digit number (yyyy)
+getMonth()	Get the month as a number (0-11)
+getDate()	Get the day as a number (1-31)
+getHours()	Get the hour (0-23)
+getMinutes()	Get the minute (0-59)
+getSeconds()	Get the second (0-59)
+getMilliseconds()	Get the millisecond (0-999)
+getTime()	Get the time (milliseconds since January 1, 1970)
+getDay()	Get the weekday as a number (0-6)
+Date.now()	Get the time. ECMAScript 5.</pre>
+<h4>.getTime()</h4>
+<p id="getDate1"></p>
+<script type="text/javascript">
+	const textGetDate1 = new Date();
+	document.getElementById('getDate1').innerHTML=textGetDate1.getTime()
+</script>
+<h4>getFullYear()</h4>
+<pre>const d = new Date(2012,2,21);
+document.getElementById("demo").innerHTML = d.getFullYear();</pre>
+<p id="getDate2"></p>
+<script type="text/javascript">
+	const textGetDate2 = new Date(2012,2,21);
+	document.getElementById('getDate2').innerHTML=textGetDate2.getFullYear()
+</script>
+<h4>getMonth()</h4>
+<pre>const d = new Date(2012,2,34);
+document.getElementById("demo").innerHTML = d.getMonth();</pre>
+<p id="getDate3"></p>
+<script type="text/javascript">
+	const textGetDate3 = new Date(2012,2,21);
+	document.getElementById('getDate3').innerHTML="Index Thang: "+textGetDate3.getMonth()
+</script>
+<p><b>Note</b>: chuyen sang chu cai, tao 1 mang</p>
+<pre>const d = new Date();
+const months = ["Thang 1", "Thang 2", "Thang 3", "Thang 4", "Thang 5", "Thang 6", "Thang 7", "Thang 8", "Thang 9", "Thang 10", "Thang 11", "Thang 12"];
+document.getElementById("demo").innerHTML = months[d.getMonth()];</pre>
+<p id="getDate4"></p>
+<script type="text/javascript">
+	const textGetDate4a = new Date(2012,2,21);
+	const textGetDate4b = ["Thang 1", "Thang 2", "Thang 3", "Thang 4", "Thang 5", "Thang 6", "Thang 7", "Thang 8", "Thang 9", "Thang 10", "Thang 11", "Thang 12"];
+document.getElementById("getDate4").innerHTML = textGetDate4b[textGetDate4a.getMonth()];
+</script>
+<h4>getDate()</h4>
+<pre>const d = new Date(2012,2,21);
+document.getElementById("demo").innerHTML = d.getDate();</pre>
+<p id="getDate5"></p>
+<script type="text/javascript">
+	const textGetDate5a = new Date(2012,2,21);
+document.getElementById("getDate5").innerHTML = "Ngay: "+textGetDate5a.getMonth();
+</script>
+<h4>getMinutes()</h4>
+<pre>const d = new Date();
+document.getElementById("demo").innerHTML = d.getMinutes();
+</pre>
+<h4>getSeconds()</h4>
+<p>return (0-999):</p>
+<h4>getDay()</h4>
+<pre>const d = new Date();
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+document.getElementById("demo").innerHTML = days[d.getDay()];</pre>
+<h4>UTC Date</h4>
+<pre>getUTCDate()
+getUTCDay()
+getUTCFullYear()
+getUTCHours()
+getUTCMilliseconds()
+getUTCMinutes()
+getUTCMonth()
+getUTCSeconds()</pre>
+<h2>JavaScript Set Date Methods----</h2>
+<p>Set: cai` lai ngay/thang/nam khac</p>
+<pre>setDate()	Set the day as a number (1-31)
+setFullYear()	Set the year (optionally month and day)
+setHours()	Set the hour (0-23)
+setMilliseconds()	Set the milliseconds (0-999)
+setMinutes()	Set the minutes (0-59)
+setMonth()	Set the month (0-11)
+setSeconds()	Set the seconds (0-59)
+setTime()	Set the time (milliseconds since January 1, 1970)</pre>
+<p><b>Note</b>: khong co setDay()</p>
+<h4>setFullYear()</h4>
+<pre>const d = new Date();
+d.setFullYear(2020);</pre>
+<p id="setDate1"></p>
+<script type="text/javascript">
+	const textSetDate1 = new Date();
+	textSetDate1.setFullYear(2020);
+	document.getElementById('setDate1').innerHTML=textSetDate1
+</script>
+<h4>setMonth()</h4>
+<pre>const d = new Date();
+d.setMonth(11);</pre>
+<h4>setDate()</h4>
+<pre>const d = new Date();
+d.setDate(d.getDate() + 50);</pre>
+<p id="setDate2"></p>
+<script type="text/javascript">
+	const textSetDate2 = new Date();
+	textSetDate2.setDate(textSetDate2.getDate() + 50);
+	document.getElementById("setDate2").innerHTML = textSetDate2;
+</script>
+<h4>setHours() </h4>
+<h4>setMinutes()</h4>
+<h4>setSeconds()</h4>
+<h4>Compare Dates</h4>
+<pre>let text = "";
+const today = new Date();
+const someday = new Date();
+someday.setFullYear(2100, 0, 14);
+
+if (someday > today) {
+  text = "Today is before January 14, 2100.";
+} else {
+  text = "Today is after January 14, 2100.";
+}</pre>
+<p></p>
+
 
 </body>
 </html>
