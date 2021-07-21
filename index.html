@@ -183,9 +183,9 @@ str.substr(-4,3) </pre>
 let newtext = text("Lam", "master")</pre>
 <p id="stringmethods5"></p>
 <script type="text/javascript">
-	let text = "i'm Lam";
-	let newtext = text.replace("Lam", "master")
-	document.getElementById('stringmethods5').innerHTML=newtext;
+	let textStringmethods5a = "i'm Lam";
+	let textStringmethods5b = textStringmethods5a.replace("Lam", "master")
+	document.getElementById('stringmethods5').innerHTML=textStringmethods5b;
 </script>
 <p>/.../i khong phan biet HOA-thuong</p>
 <pre>let text = "i'm Lam";
@@ -286,7 +286,7 @@ document.getElementById("stringmethods14").innerHTML = myArr;
 <p><b>-indexOf()</b>: tim vi tri cua ky tu trong chuoi</p>
 <pre>let txt = "abcdefghijklm";
 let pos = txt.indexOf("h");</pre>
-<h2>JavaScript String Search---</h2>
+<h2 id="regexp1b"><a href="#regexp1a">JavaScript String Search</a>---</h2>
 <h4>.indexOf(0)</h4><p>vi tri dau tien cua cum tu</p>
 <h4>.lastIndexOf(0)</h4><p>vi tri lan xuat hien cuoi cung cua cum tu</p>
 <p>Note: return -1, neu khong tim thay</p>
@@ -414,8 +414,8 @@ let y = "10";</pre>
 isNaN(x);               // returns true because x is Not a Number</pre>
 <h4>Infinity (-Infinity)</h4>
 <p>gia tri vuot ra ngoai so lon nhat js</p>
-<h2>Js number methods----</h2>
-<h4>.toString()</h4>
+<h2 id="Conversion3a"><a href="#Conversion3b">Js number methods----</a></h2>
+<h4 id="Conversion2a"><a href="#Conversion2b">.toString()</a></h4>
 <ul>
 	<li>x.toString()</li>
 	<li>(123).toString()</li>
@@ -452,7 +452,7 @@ x.toPrecision(6);       // returns 19.6560</pre>
 <p>Tra ve 1 con so nguyen thuy</p>
 <p><b>Note</b>: string ("123"), number, object (new number(123)) tra ve number</p>
 <p><b>Note</b>: .toString(x) co tham so, .valueOf() ko co tham so</p>
-<h4>Number()</h4>
+<h4 id="Conversion1a"><a href="#Conversion1b">Number()</a></h4>
 <p>tra ve 1 so</p>
 <pre>Number(new Date("2017-09-30"));    // returns 1506729600000</pre>
 <p><b>Note</b>:tra Date ve so', bat dau tu 1.1.1970</p>
@@ -964,18 +964,18 @@ for (let x of keys) {
   text += x + "<br>";
 }</pre>
 <p>??? code khong chay dc</p>
-<p id="demo"></p>
+<p id="arrayIteration10"></p>
 
 <script>
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
-const keys = fruits.keys();
+const textArrayIteration10a = ["Banana", "Orange", "Apple", "Mango"];
+const textArrayIteration10b = textArrayIteration10a.keys();
 
-let text = "";
-for (let x of keys) {
-  text += x + "<br>";
+let textArrayIteration10c = "";
+for (let x of textArrayIteration10b) {
+  textArrayIteration10c += x + "<br>";
 }
 
-document.getElementById("demo").innerHTML = text;
+document.getElementById("arrayIteration10").innerHTML = textArrayIteration10c;
 </script>
 <h2>JavaScript Date Objects---</h2>
 <pre>const d = new Date();</pre>
@@ -1084,7 +1084,7 @@ document.getElementById("dateObject9").innerHTML = textDateObject9a;
 <p>Chuyen thanh milliseconds</p>
 <pre>let msec = Date.parse("March 21, 2012");
 document.getElementById("demo").innerHTML = msec;</pre>
-<h2>JavaScript Get Date Methods----</h2>
+<h2 id="Conversion4a"><a href="#Conversion4b">JavaScript Get Date Methods</a>----</h2>
 <pre>Method	Description
 getFullYear()	Get the year as a four digit number (yyyy)
 getMonth()	Get the month as a number (0-11)
@@ -1201,7 +1201,588 @@ if (someday > today) {
 } else {
   text = "Today is after January 14, 2100.";
 }</pre>
-<p></p>
+<h2>JavaScript Math Object</h2>
+<h3>Math.property.</h3>
+<pre>Math.E        // returns Euler's number
+Math.PI       // returns PI
+Math.SQRT2    // returns the square root of 2
+Math.SQRT1_2  // returns the square root of 1/2
+Math.LN2      // returns the natural logarithm of 2
+Math.LN10     // returns the natural logarithm of 10
+Math.LOG2E    // returns base 2 logarithm of E
+Math.LOG10E   // returns base 10 logarithm of E</pre>
+<h3>Math.method.(number)</h3>
+<p><u>4 cach lam tron so nguyen</u></p>
+<pre>Math.round(x)	Chuan 1.4 ->1 va 1.6->2
+Math.ceil(x)	1,4 -> 2 va 1,6 -> 2
+Math.floor(x)	1,4 -> 1 va 1,6 -> 1
+Math.trunc(x)	lay phan nguyen (new in ES6)
+</pre>
+<h4>Math.round()</h4>
+<pre>Math.round(4.9);    // returns 5
+Math.round(4.7);    // returns 5
+Math.round(4.4);    // returns 4
+Math.round(4.2);    // returns 4
+Math.round(-4.2);    // returns -4</pre>
+<h4>Math.ceil()</h4>
+<h4>Math.floor()</h4>
+<h4>Math.trunc()</h4>
+<pre>Math.trunc(4.9);    // returns 4
+Math.trunc(4.7);    // returns 4
+Math.trunc(4.4);    // returns 4
+Math.trunc(4.2);    // returns 4
+Math.trunc(-4.2);    // returns -4</pre>
+<h4>Math.sign()</h4>
+<p>return ra so am/duong</p>
+<pre>Math.sign(-4);    // returns -1
+Math.sign(0);    // returns 0
+Math.sign(4);    // returns 1</pre>
+<h4>Math.pow(x, y)</h4>
+<p>x luy thua y. x**y</p>
+<h4>Math.sqrt()</h4>
+<pre>Math.sqrt(64);      // returns 8</pre>
+<pre>Math.pow(64.1/2)</pre>
+<h4>Math.abs()</h4>
+<p>Gia tri tuyet doi</p>
+<pre>Math.abs(-4.7);     // returns 4.7</pre>
+<h4>Math.sin()</h4>
+<h4>Math.cos()</h4>
+<h4>Math.min() and Math.max()</h4>
+<pre>Math.min(0, 150, 30, 20, -8, -200);  // returns -200</pre>
+<pre>Math.max(0, 150, 30, 20, -8, -200);  // returns 150</pre>
+<p>???question. lam sao truyen vao 1 mang da duoc dinh nghia truoc</p>
+<h4>Math.random()</h4>
+<p>tra 0 -> 1</p>
+<h4>Math.log()</h4>
+<pre>Math.log(10);    // returns 2.302585092994046</pre>
+<p>nhan bao nhieu lan Math.E de co gia tri = 10</p>
+<h4>Math.log2() </h4>
+<pre>Math.log2(8);    // returns 3</pre>
+<h4>Math.log10()</h4>
+<pre>Math.log10(1000);    // returns 3</pre>
+<h2>JavaScript Random---</h2>
+<h4>return 0->9</h4>
+<pre>Math.floor(Math.random()*10)</pre>
+<h4>return 0->10</h4>
+<pre>Math.floor(Math.random()*11)</pre>
+<h4>return 1->10</h4>
+<pre>Math.floor(Math.random()*10+1)</pre>
+<h3>Cong thu chung voi function</h3>
+<h4>min - max (ko bao gom max)</h4>
+<pre>function textMathRandom1(min, max) {
+	return Math.floor(Math.random()*(max-min)+min)</pre>
+<button onclick="document.getElementById('mathRandom1').innerHTML=textMathRandom1(5,15)">random min5-<;max15</button>
+<p id="mathRandom1">ket qua</p>
+<script type="text/javascript">
+	function textMathRandom1(min, max) {
+	return  Math.floor(Math.random()*(max-min)+min)
+}
+</script>
+<h4>min - max (bao gom)</h4>
+<pre>function textMathRandom1(min, max) {
+	return Math.floor(Math.random()*(max-min)+min+1)</pre>
+<button onclick="document.getElementById('mathRandom2').innerHTML=textMathRandom2(5,15)">random min5-max15</button>
+<p id="mathRandom2">ket qua</p>
+<script type="text/javascript">
+	function textMathRandom2(min, max) {
+	return Math.floor(Math.random()*(max-min)+min+1)
+}
+</script>
+<h2>Boolean Values</h2>
+<ul>
+	<li>YES / NO</li>
+	<li>ON / OFF</li>
+	<li>TRUE / FALSE</li>
+</ul>
+<h4>Boolean()</h4>
+<pre>Boolen(10<9)</pre>
+<p><b>Note</b>: Everything With a "Value" is True. Tru so 0</p>
+<p id="booleans1"></p>
+
+<script>
+document.getElementById("booleans1").innerHTML =
+"-15 is " + Boolean(-15) + "<br>" +
+"Any (not empty) string is " + Boolean("Hello") + "<br>" +
+"Even the string 'false' is " + Boolean('false') + "<br>" +"<br>"+
+"Any expression (except zero) is " + Boolean(0);
+</script>
+<p><b>Note</b>: Everything Without a "Value" is False</p>
+<h2>JS Comparisons---</h2>
+<h4>variablename = (condition) ? value1:value2 </h4>
+
+<input id="comparisons1A" value="17"/>
+<button onclick="funcComparisons1()">kiem tra</button>
+<p id="comparisons1B"></p>
+<script type="text/javascript">
+	function funcComparisons1(){
+		let comparisons1a = document.getElementById('comparisons1A').value;
+		let comparisons1b = (comparisons1a < 18) ? "Too young":"Old enough"
+			document.getElementById('comparisons1B').innerHTML = comparisons1b
+		}
+</script>
+<p>Kiem tra co phai NaN</p>
+<input type="" name="" id="comparisons2A" value="a">
+<button onclick="funcComparisons2()">kiem tra</button>
+<p id="comparisons2B"></p>
+<script type="text/javascript">
+	function funcComparisons2(){
+		let comparisons2a = document.getElementById('comparisons2A').value
+		if (isNaN(comparisons2a)) {
+			comparisons2b = "Input is not a number"
+		} else {
+			comparisons2b = (comparisons2a < 18) ? "Too young":"Old enough"
+		}
+		document.getElementById('comparisons2B').innerHTML=comparisons2b
+	}
+</script>
+
+<h2>JavaScript if else and else if---</h2>
+<h4>new Date().getHours()</h4>
+<p id="ifelse1"></p>
+<script type="text/javascript">
+	if (new Date().getHours()<18) {
+		document.getElementById('ifelse1').innerHTML="good day"
+	} else 
+		document.getElementById('ifelse1').innerHTML="good evening"
+</script>
+<h2>JavaScript Switch Statement----</h2>
+<pre>switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
+</pre>
+<p id="switch1"></p>
+<script type="text/javascript">
+	let textSwitch1;
+	switch (new Date().getDay()){
+			case 1:
+				textSwitch1 ="Monday";
+				break;
+			case 2:
+				textSwitch1 ="Tuesday";
+				break;
+			case 3:
+				textSwitch1 ="Wednesday";
+				break;
+			case 4:
+				textSwitch1 ="Thursday";
+				break;
+			case 5:
+				textSwitch1 ="Friday";
+				break;
+			case 6:
+				textSwitch1 ="Saturday";
+				break;
+			case 0:
+				textSwitch1 ="Sunday";
+				break;
+			default:
+				textSwitch1 ="sai";
+				break;
+	}
+	document.getElementById('switch1').innerHTML=textSwitch1;
+</script>
+<p><b>Note</b>: trong switch se so sanh ====</p>
+<pre>let x = "0";
+switch (x) {
+  case 0:
+    text = "Off";
+    break;
+  case 1:
+    text = "On";
+    break;
+  default:
+    text = "No value found";
+}</pre>
+<p>ket qua No value found. vi "0" # case 0 </p>
+
+<h2>JavaScript For Loop---</h2>
+<pre>const cars = ["BMW", "Volvo", "Saab", "Ford", "Fiat", "Audi"];
+
+let text = "";
+for (let i = 0; i < cars.length; i++) {
+  text += cars[i] + "<br>";
+}</pre>
+<pre>for (statement 1; statement 2; statement 3) {
+  // code block to be executed
+}</pre>
+<h2>JavaScript For In---</h2>
+<h4>loop in Object</h4>
+<pre>for (key in object) {
+  // code block to be executed
+}</pre>
+<h4>loop in Array</h4>
+<pre>for (variable in array) {
+  code
+}</pre>
+<pre>const person = {fname:"John", lname:"Doe", age:25};
+
+let text = "";
+for (let x in person) {
+  text += person[x];
+}</pre>
+<p><b>Note</b>: chay duoc trong object {} va trong array []</p>
+<p><b>Note</b>: Neu thu tu index quan trong trong tinh toan, thi khong nen su dung for in. Vi thu tu co the khong theo mong muon. Thay vao do, dung for loop, for of, array.forEach()</p>
+<h2>JavaScript For Of----</h2>
+<pre>for (variable of iterable) {
+  // code block to be executed
+}</pre>
+<h4>Lap trong mang</h4>
+<pre>const cars = ["BMW", "Volvo", "Mini"];</pre>
+<h4>Lap trong chuoi ky tu</h4>
+<pre>let language = "JavaScript";
+
+let text = "";
+for (let x of language) {
+text += x;
+}</pre>
+<p id="forof1"></p>
+<script type="text/javascript">
+	let textForof1a = "javascript";
+	let textForof1b="";
+	for (let x of textForof1a) {
+		textForof1b +=x +"<br>";
+	}
+	document.getElementById('forof1').innerHTML=textForof1b
+</script>
+<p><b>Note</b>: khong dung duoc voi object  person = {fname:"John", lname:"Doe", age:25};</p>
+<h4>JavaScript While Loop---</h4>
+<ul><li>While Loop</li></ul>
+<pre>while (condition) {
+  // code block to be executed
+}</pre>
+<ul><li>Do While Loop</li></ul>
+<pre>do {
+  // code block to be executed
+}
+while (condition);</pre>
+<h2>JavaScript Break and Continue---</h2>
+<ul>
+	<li>break</li>
+	<p>Nhay khoi vong lap</p>
+	<li>continue</li>
+	<p>nhay qua 1 lan vong lap</p>
+</ul>
+<h4>Labels</h4>
+<pre>break labelname;
+
+continue labelname;</pre>
+<p>Vi du</p>
+<pre>const cars = ["BMW", "Volvo", "Saab", "Ford"];
+list: {
+  text += cars[0] + "<br>";
+  text += cars[1] + "<br>";
+  break list;
+  text += cars[2] + "<br>";
+  text += cars[3] + "<br>";
+}</pre>
+<h2>JavaScript typeof---</h2>
+<h4>5 Data Type</h4>
+<ul>
+	<li>string</li>
+	<li>number: gom NaN</li>
+	<li>object: gom null</li>
+	<li>boolean</li>
+	<li>function</li>
+</ul>
+<p>typeof tra ra Data Type</p>
+<pre>typeof "John"                 // Returns "string"
+typeof 3.14                   // Returns "number"
+typeof NaN                    // Returns "number"
+typeof false                  // Returns "boolean"
+typeof [1,2,3,4]              // Returns "object"
+typeof {name:'John', age:34}  // Returns "object"
+typeof new Date()             // Returns "object"
+typeof function () {}         // Returns "function"
+typeof myCar                  // Returns "undefined" *
+typeof null                   // Returns "object"</pre>
+<p><b>Note</b>: khong the su dung typeof de xa dinh: array, object hay Date</p>
+<h4>6 types of objects</h4>
+<ul>
+	<li>object</li>
+	<li>Date</li>
+	<li>array</li>
+	<li>number</li>
+	<li>string</li>
+	<li>Boolean</li>
+</ul>
+<pre>"John".constructor                // Returns function String()  {[native code]}
+(3.14).constructor                // Returns function Number()  {[native code]}
+false.constructor                 // Returns function Boolean() {[native code]}
+[1,2,3,4].constructor             // Returns function Array()   {[native code]}
+{name:'John',age:34}.constructor  // Returns function Object()  {[native code]}
+new Date().constructor            // Returns function Date()    {[native code]}
+function () {}.constructor        // Returns function Function(){[native code]}</pre>
+<h2>JavaScript Type Conversion---</h2>
+
+<h4><a href="#Conversion1a" id="Conversion1b">Strings to Numbers</a></h4>
+<pre>Number()	Returns a number, converted from its argument
+parseFloat()	Parses a string and returns a floating point number
+parseInt()	Parses a string and returns an integer</pre>
+<pre>let y = "5";      // y is a string
+let x = + y;      // x is a number</pre>
+<pre>let y = "John";   // y is a string
+let x = + y;      // x is a number (NaN)	</pre>
+
+<h4><a href="#Conversion2a" id="Conversion2b">Numbers to Strings</a></h4>
+<ul><li>String()</li></ul>
+String(x)         // returns a string from a number variable x
+String(123)       // returns a string from a number literal 123
+String(100 + 23)  // returns a string from a number from an expression
+<ul><li>.toString()</li></ul>
+<pre>x.toString()
+(123).toString()
+(100 + 23).toString()</pre>
+<p id="Conversion3b"><b><a href="#Conversion3a">More Number methods</a></b></p>
+
+<h4>Dates to Numbers</h4>
+<pre>d = new Date();
+Number(d)          // returns 1404568027739</pre>
+<pre>d = new Date()
+d.getTime()	// returns 1404568027739
+</pre>
+
+<h4 id="Conversion4b"><a href="#Conversion4a">Dates to Strings</a></h4>
+<pre>String(Date())  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"</pre>
+<pre>Date().toString()  // returns "Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)"</pre>
+
+<h4>Booleans to Numbers</h4>
+<pre>Number(false)     // returns 0
+Number(true)      // returns 1</pre>
+
+<h4>Booleans to Strings</h4>
+<pre>String(false)      // returns "false"
+String(true)       // returns "true"</pre>
+<pre>false.toString()   // returns "false"
+true.toString()    // returns "true"</pre>
+
+<h2 id="regexp1a"><a href="#regexp1b">JavaScript Regular Expressions</a>---</h2>
+<pre>/pattern/modifiers;</pre>
+<pre>/w3schools/i;</pre>
+<h4>search()</h4>
+<p>tra ve index</p>
+<pre>let text = "Visit W3Schools!";
+let n = text.search("W3Schools");
+</pre>
+<h4>replace()</h4>
+<pre>let text = "Visit Microsoft!";
+let result = text.replace(/microsoft/i, "W3Schools");</pre>
+<p>Note: cac Modifiers</p>
+<pre>
+	i khong phan biet HOA-thuong
+	g tim kiem toan bo
+	m tim kiem nhieu dong
+</pre>
+<p>-----</p>
+
+<pre>[abc]	tim cac ki tu o giua	
+[0-9]	Tim cac con so	
+(x|y)	tim cac cum ky tu ( | )</pre>
+<pre>let text = "Is this all there is?";
+let result = text.match(/[h,i]/ig);
+document.getElementById("demo").innerHTML = result;</pre>
+<p id="regexp2"></p>
+<script type="text/javascript">
+	let textRegexp2 = "Is this all there is?";
+let resultRegexp2 = textRegexp2.match(/[hi]/ig);
+document.getElementById("regexp2").innerHTML = '[abc]= '+resultRegexp2;
+</script>
+<pre>let text = "123456789";
+let result = text.match(/[1-4]/g);</pre>
+<p>[0-9] = 1,2,3,4</p>
+<pre>let text = "re, green, red, green, gren, gr, blue, yellow";
+let result = text.match(/(red|gree|lo)/g);</pre>
+<p>(x|y) = gree,red,gree,lo</p>
+<p>-----</p>
+<pre>\d	Tim 1 chu so
+\s	Tim ki tu trang
+\b	Tim ky tu nam o dau: \bWORD, hoac nam o cuoi: WORD\b	
+\uxxxx	Tim bang ky tu thap luc phan</pre>
+<pre>let text = "Give 100%!"; 
+let result = text.match(/\d/g);</pre>
+<p> => \d = 1,0,0</p>
+<pre>let text = "Is this all there is?";
+let result = text.match(/\s/g);</pre>
+<p> =>\s =  , , , (4 ky tu trang)</p>
+<pre>let text = "HELLO, LOOK AT YOU!"; 
+let result = text.search(/LO\b/g);</pre>
+<p>=> \s = 3 (search tra ve index LO cua chu HELLO</p>
+<pre>let text = "Visit W3Schools. Hello World!"; 
+let result = text.match(/\u0057/g);</pre>
+<p>=> \uxxxx = W,W</p>
+<p>------</p>
+<pre>n+	tim cuoi chua it nhat n
+n*	khong chua hoac chua nhieu n
+n?	khong chua hoac 1 lan xuat hien n</pre>
+<pre>let text = "Hellooo World! Hello W3Schools!"; 
+let result = text.match(/o+/g);</pre>
+<p>=> n+ = ooo,o,o,oo</p>
+<pre>let text = "Hellooo World! Hello W3Schools!"; 
+let result = text.match(/lo*/g);</pre>
+<p>=> n* = l,looo,l,l,lo,l</p>
+<pre>let text = "1, 100 or 1000?";
+let result = text.match(/10?/g);</pre>
+<p>=> n? = 1,10,10</p>
+<h4>test()</h4>
+<p>Tra ve true/false sau khi kiem tra co ky tu tim kiem</p>
+<pre>let text = "The best things in life are free!";
+const pattern = /e/;
+document.getElementById("demo").innerHTML = pattern.test(text);</pre>
+<p>=> true</p>
+<p>Note</p>
+<pre>/e/.test("The best things in life are free!");</pre>
+<h4>exec()</h4>
+<p>Tim mau ky tu va tra ra chuoi	</p>
+<pre>const obj = /e/.exec("The best things in life are free!");
+document.getElementById("demo").innerHTML =
+"Found " + obj[0] + " in position " + obj.index + " in the text: " + obj.input;</pre>
+<ul>
+	<li>obj[0] = 2 ???Tai sao la 0</li>
+	<li>obj.index = so index</li>
+	<li>obj.input = The best things in life are free!</li>
+</ul>
+<h2>JavaScript Errors - Throw and Try to Catch---</h2>
+<ul>
+	<li>try: kiem tra khoi lenh</li>
+	<li>catch: hien thi loi</li>
+	<li>throw: tao ra 1 lenh loi tuy y</li>
+	<li>finally:</li>
+</ul>
+<pre>try {
+  adddlert("Welcome guest!");
+}
+catch(err) {
+  document.getElementById("demo").innerHTML = err.message;
+}</pre>
+<p id="errors1"></p>
+<script type="text/javascript">
+try {
+  adddlert("Welcome guest!");
+}
+catch(err) {
+  document.getElementById("errors1").innerHTML = err.message;
+}
+</script>
+<h4>try and catch</h4>
+<pre>try {
+  Block of code to try
+}
+catch(err) {
+  Block of code to handle errors
+}</pre>
+<h4>Throws Errors</h4>
+<pre>throw "Too big";    // throw a text
+throw 500;          // throw a number</pre>
+
+<input id="errors2a" type="number ">
+<button onclick="funcErrors2()">Click</button>
+<p id="errors2b">ket qua o day</p>
+<script type="text/javascript">
+	function funcErrors2(){
+		let textErrors2 = document.getElementById('errors2a').value;
+		try {
+			if (textErrors2=="") throw "trong";
+			if (isNaN(textErrors2)) throw "khong phai so";
+			textErrors2 = Number(textErrors2);
+			if (textErrors2 < 5) throw "qua nho";
+			if (textErrors2 > 10) throw "qua lon";
+			document.getElementById('errors2b').innerHTML = "so "+textErrors2+" trong khoang 5-10"
+		}
+		catch (err) {
+			alert("Loi "+err)
+			document.getElementById('errors2b').innerHTML="Vui long nhap lai"
+		}
+	}
+	
+</script>
+<pre>< input id="demo" type="number" min="5" max="10" step="1"></pre>
+<input id="demo" type="number" min="5" max="10" step="1">
+<h4>finally</h4>
+<pre>try {
+  Block of code to try
+}
+catch(err) {
+  Block of code to handle errors
+}
+finally {
+  Block of code to be executed regardless of the try / catch result
+}</pre>
+<pre> finally {
+    document.getElementById("demo").value = "";
+  }</pre>
+<input id="errors3a" type="number ">
+<button onclick="funcErrors3()">Click</button>
+<p id="errors3b">ket qua o day</p>
+<script type="text/javascript">
+	function funcErrors3(){
+		let textErrors3 = document.getElementById('errors3a').value;
+		try {
+			if (textErrors3=="") throw "trong";
+			if (isNaN(textErrors3)) throw "khong phai so";
+			textErrors3 = Number(textErrors3);
+			if (textErrors3 < 5) throw "qua nho";
+			if (textErrors3 > 10) throw "qua lon";
+			document.getElementById('errors3b').innerHTML = "so "+textErrors3+" trong khoang 5-10"
+		}
+		catch (err) {
+			alert("Loi "+err)
+			document.getElementById('errors3b').innerHTML="Vui long nhap lai"
+		}
+		finally {
+    document.getElementById("errors3a").value = "Finally: Nhap so khac";
+  	}
+	}
+</script>
+<h4>Error Object Properties</h4>
+<ul>
+	<li>name (err.name): hien thi ten loi </li>
+	<li>message (err.message): hien thi thong bao chi tiet</li>
+</ul>
+<p><b>err.name => RangeError</b>: ngoai gioi han cua gia tri</p>
+<pre>num.toPrecision(500);   // tu 1 den 100</pre>
+<p><b>err.name => ReferenceError</b>: loi ve khai bao</p>
+<pre>let x = 5;
+try {
+  x = y + 1;   // y chua duoc khai bao
+}</pre>
+<p><b>err.name => SyntaxError</b>: loi cu phap</p>
+<pre>eval("alert('Hello)");  //Missing ' will produce an error</pre>
+<p><b>err.name => TypeError</b>: loi kieu du lieu</p>
+<pre>let num = 1;
+try {
+  num.toUpperCase();   // You cannot convert a number to upper case
+}</pre>
+<p><b>err.name => URIError</b>: loi ky tu dac biet</p>
+<pre>try {
+  decodeURI("%%%");   // You cannot URI decode percent signs
+}</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 </body>
