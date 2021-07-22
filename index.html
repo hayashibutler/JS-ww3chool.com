@@ -98,14 +98,14 @@ document.getElementById('functions1').innerHTML=toCelsius(100);
  <p>document.getElementById('objects1').innerHTML=person.<b>fullName()</b>;</p> 
 <p id="objects1"></p>
 <script type="text/javascript">
-	const person = {
+	const personObjects1 = {
  		firstName: "John",
   		lastName: "Doe",
   		age: 50,
  		eyeColor: "blue",
  		fullName: function objects() {return this.lastName}
 	};
-	document.getElementById('objects1').innerHTML=person.fullName();
+	document.getElementById('objects1').innerHTML=personObjects1.fullName();
 </script>
 <p>JS events-----</p>
 <p>document.getElementById("id").innerHTML -> thay doi noi khac</p>
@@ -1702,7 +1702,7 @@ throw 500;          // throw a number</pre>
 	
 </script>
 <pre>< input id="demo" type="number" min="5" max="10" step="1"></pre>
-<input id="demo" type="number" min="5" max="10" step="1">
+<input id="errors3a" type="number" min="5" max="10" step="1">
 <h4>finally</h4>
 <pre>try {
   Block of code to try
@@ -1762,13 +1762,364 @@ try {
 <pre>try {
   decodeURI("%%%");   // You cannot URI decode percent signs
 }</pre>
+<h2>JavaScript Scope---</h2>
+<h4>Block Scope</h4>
+<p><b>Note</b>: ben ngoai truy cap duoc var. let va const, khong truy cap duoc</p>
+<pre>{
+  var x = 2;
+}
+// x CAN be used here</pre>
+<pre>{
+  let x = 2;
+}
+// x can NOT be used here</pre>
+<h4>Local Scope</h4>
+<p><b>Note</b>: function() {}. var, let, const. Ben ngoai khong truy cap duoc</p>
+<pre>// code here can NOT use carName
 
+function myFunction() {
+  let carName = "Volvo";
+  // code here CAN use carName
+}
 
+// code here can NOT use carName</pre>
+<h4>Global Scope</h4>
+<p><b>Note</b>: neu khong khai bao bien, thi bien do tro thanh global</p>
+<pre>myFunction();
 
+// code here can use carName
 
+function myFunction() {
+  carName = "Volvo";
+}</pre>
+<p>???question: window.carName</p>
+<h2>JavaScript Hoisting---</h2>
+<p>hoisting la di chuyen bien khai bao len tren</p>
+<ul><li>var</li></ul>
+<pre>x = 5; // Assign 5 to x
 
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element
 
+var x; // Declare x</pre>
+<ul><li>let</li></ul>
+<pre>carName = "Volvo";
+let carName; // loi ReferenceError</pre>
+<p>- khai bao let carName duoc day len tren, nhung khong dc khoi tao</p>
+<p>- vung chet tam thoi tu carName = "Volvo den let carName</p>
+<ul><li>const</li></ul>
+<pre>carName = "Volvo";
+const carName; // not run</pre>
+<p>- const khong dc phep khai bao lai gia tri khac. carName = "", khai bao lai = "Volvo" bi loi</p>
+<h4>Truong hop loi</h4>
+<pre>var x = 5; // Initialize x
 
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x =5 and y undefined
+
+var y = 7; // Initialize y</pre>
+<p><b>Note</b>: dat y = 7 truoc, khai bao bien var y;. Khong bi loi</p>
+<pre>var x = 5; // Initialize x
+y=7;     
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x + " " + y;           // Display x and y
+
+var y;    </pre>
+<h2>JavaScript Use Strict---</h2>
+<h4>"use strict"</h4>
+<p>phan dau cua tep tin hoac function</p>
+<p>- Ben ngoai ham</p>
+<pre>"use strict";
+myFunction();
+
+function myFunction() {
+  y = 3.14;   // This will also cause an error because y is not declared
+}</pre>
+<p>- ben trong ham</p>
+<pre>x = 3.14;       // This will not cause an error.
+myFunction();
+
+function myFunction() {
+  "use strict";
+  y = 3.14;   // This will cause an error
+}</pre>
+<h2>The JavaScript this Keyword---</h2>
+<h4>this in a Method</h4>
+<p>Chu so huu cua method</p>
+<pre>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+document.getElementById("demo").innerHTML = person.fullName();</pre>
+
+<p id="keyword1"></p>
+<script type="text/javascript">
+	const personKeyword1 = {
+  firstName: "John",
+  lastName: "Doe",
+  id: 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+document.getElementById('keyword1').innerHTML= personKeyword1.fullName();
+</script>
+<h4>this Alone</h4>
+<p>gia tri toan cuc</p>
+<h4>this in a Function</h4>
+<p>toan cuc</p>
+<pre>function myFunction() {
+  return this;
+}</pre>
+<p><b>Note</b>: strict mode -> this la undefined</p>
+<pre>"use strict";
+function myFunction() {
+  return this;
+}</pre>
+<h4>this in Event Handlers</h4>
+<p>de cap den su kien duoc nhan</p>
+<pre>< button onclick="this.style.display='none'">
+  Click to Remove Me!
+< button></pre>
+<button onclick="this.style.display='none'">
+  Click to Remove Me!
+</button>
+<h4>Explicit Function Binding</h4>
+<p><b>call() apply()</b></p>
+<pre>const person1 = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person2 = {
+  firstName:"John",
+  lastName: "Doe",
+}
+person1.fullName.call(person2);  // Will return "John Doe"</pre>
+
+<p id="keyword2"></p>
+<script type="text/javascript">
+	const person1keyword2 = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person2keyword2 = {
+  firstName:"John",
+  lastName: "Doe",
+}
+document.getElementById('keyword2').innerHTML="ket qua: "+person1keyword2.fullName.call(person2keyword2)
+</script>
+<h2>JavaScript Arrow Function---</h2>
+<p><b>Before</b></p>
+<pre>hello = function() {
+ 	return "Hello World!";
+}</pre>
+<p><b>With Arrow Function:</b></p>
+<pre>hello = () => {
+	return "Helo World";
+}</pre>
+<p><b>Neu chi co 1 cau lenh</b></p>
+<pre>hello = () => return "Hello";</pre>
+<p><b>Nhieu tham so</b></p>
+<pre>hello = (a,b) => "Hello " + a + b;</pre>
+<p><b>Neu co 1 tham so. Bo qua dau ngoac</b></p>
+<pre>hello = a => "Hello " + a;</pre>
+<h2>JavaScript Classes---</h2>
+<pre>class ClassName {
+	consttructor {...}
+}
+</pre>
+<p><b>Note</b>: Viet hoa chu cai dau ClassName</p>
+<pre>
+	class Car {
+		constructor (name, year) {
+			this.name = name;
+			this.year = year;
+		}
+	}
+</pre>
+<p><b>Note</b>: class khong phai la doi tuong, chi la cai mau</p>
+<h4>using class</h4>
+<pre>let myCar1 = new Car("Ford", 2014);
+let myCar2 = new Car("Audi", 2019);</pre>
+<p><u>vi du</u></p>
+<pre>class Car{
+	constructor(name, year) {
+		this.name1 = name;
+		this.year1 = year;
+	};
+};
+let car1 = new Car("Ford", 2014);
+document.getElementById('demo').innerHTML = car1.name1 + " "+car1.year1</pre>
+
+<p id="classes1"></p>
+<script>
+	class Carclasses1{
+		constructor(nameclasses1, yearclasses1) {
+			this.name1classes1 = nameclasses1;
+			this.year1classes1 = yearclasses1;
+		};
+	};
+	let car1classes1 = new Carclasses1("Ford", 2014);
+	document.getElementById('classes1').innerHTML = car1classes1.name1classes1 + " "+car1classes1.year1classes1
+</script>
+<h4>Class Methods</h4>
+<pre>class ClassName {
+  constructor() { ... }
+  method_1() { ... }
+  method_2() { ... }
+  method_3() { ... }
+}	</pre>
+<p><u>vi du</u></p>
+<pre>	class Car{
+	constructor(name, year) {
+		this.name1=name;
+		this.year1=year;
+	}
+	age(){
+		let day = new Date();
+		return day.getFullYear() - this.year1
+	}
+}
+let car1 = new Car("BWM", 2010);
+document.getElementById('classes2').innerHTML="My car is "+car1.name1+", "+car1.age()+" year old"</pre>
+<p id="classes2"></p>
+<script type="text/javascript">
+	class Carclasses2{
+		constructor(name, year) {
+			this.name1=name;
+			this.year1=year;
+		}
+		age(){
+			let day = new Date();
+			return day.getFullYear() - this.year1
+		}
+	}
+	let car1 = new Carclasses2("BWM", 2010);
+	document.getElementById('classes2').innerHTML="My car is "+car1.name1+", "+car1.age()+" year old"
+</script>
+
+<pre>class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+  age(x) {
+    return x - this.year;
+  }
+}
+
+let date = new Date();
+let year = date.getFullYear();
+
+let myCar = new Car("Ford", 2014);
+document.getElementById("demo").innerHTML=
+"My car is " + myCar.age(year) + " years old.";</pre>
+<h2>JavaScript JSON---</h2>
+<pre>{
+"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]
+}</pre>
+<h4>JSON Data - A Name and a Value</h4>
+<pre>"firstName":"John", "lastName":"Doe"</pre>
+<p><b>Note</b>: name cua JSON yeu cau dau kep " "</p>
+<h4>JSON Objects</h4>
+<p>cac doi tuong viet trong dau { }</p>
+<pre>{"firstName":"John","lastName":"Doe"}</pre>
+<h4>JSON Arrays</h4>
+<pre>"employees":[
+  {"firstName":"John", "lastName":"Doe"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Peter", "lastName":"Jones"}
+]</pre>
+<h4>Converting a JSON Text to a JavaScript Object</h4>
+<p>Doc du lieu tu may chu, hien thi tren web. cach don gian, se tao 1 chuoi JSON</p>
+<pre>let text = '{ "employees" : [' +
+'{ "firstName":"John" , "lastName":"Doe" },' +
+'{ "firstName":"Anna" , "lastName":"Smith" },' +
+'{ "firstName":"Peter" , "lastName":"Jones" } ]}';</pre>
+<p><b>JSON.pasre()</b>: de chuyen doi sang js</p>
+<pre>const obj = JSON.parse(text);</pre>
+<p id="json1"></p>
+<script type="text/javascript">
+	let textjson1 = '{ "employees" : [' +
+'{ "firstName":"John" , "lastName":"Doe" },' +
+'{ "firstName":"Anna" , "lastName":"Smith" },' +
+'{ "firstName":"Peter" , "lastName":"Jones" } ]}';
+	let objjson1 = JSON.parse(textjson1);
+	document.getElementById('json1').innerHTML=objjson1.employees[1].firstName +" "+objjson1.employees[1].lastName
+</script>
+<h2>JavaScript Debugging---</h2>
+<h2>JavaScript Style Guide---</h2>
+<pre>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};</pre>
+<p>; cuoi dong, khong co dau , o thuoc tinh cuoi</p>
+<pre>const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};</pre>
+<p>chi co dau cach o giua 2 thuoc tinh</p>
+<h4>Line Length < 80</h4>
+<pre>document.getElementById("demo").innerHTML =
+"Hello Dolly.";</pre>
+<h4>Naming Conventions</h4>
+<p>- UPPERCASE voi bien Global</p>
+<h2></h2>
+<h4>Declarations on Top</h4>
+<pre>// Declare at the beginning
+let firstName, lastName, price, discount, fullPrice;
+
+// Use later
+firstName = "John";
+lastName = "Doe";
+
+price = 19.90;
+discount = 0.10;
+
+fullPrice = price - discount;</pre>
+<pre>// Declare and initiate at the beginning
+let firstName = "",
+let lastName = "",
+let price = 0,
+let discount = 0,
+let fullPrice = 0,
+const myArray = [],
+const myObject = {};</pre>
+<h4>Declare Objects with const</h4>
+<pre>let cars = ["Saab", "Volvo", "BMW"];
+cars = 3;    // Changes array to number
+
+const cars = ["Saab", "Volvo", "BMW"];
+cars = 3;    // Not possible</pre>
+<h4>Don't Use new Object()</h4>
+<pre>let x1 = "";             // new primitive string
+let x2 = 0;              // new primitive number
+let x3 = false;          // new primitive boolean
+const x4 = {};           // new object
+const x5 = [];           // new array object
+const x6 = /()/;         // new regexp object
+const x7 = function(){}; // new function object
+</pre>
+<h2>JavaScript Performance</h2>
+<b>bad</b>
+<pre>for (let i = 0; i < arr.length; i++) {</pre>
+<b>Better</b>
+<pre>let l = arr.length;
+for (let i = 0; i < l; i++) {</pre>
+<h4>Reduce DOM </h4>
+<p>su dung nhu 1 bien</p>
+<pre>const obj = document.getElementById("demo");
+obj.innerHTML = "Hello";</pre>
 
 
 
