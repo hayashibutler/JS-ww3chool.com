@@ -2,8 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>JS ww3school.com</title>
 	<script src="java.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <p id="dem1">JavaScript can change HTML content.</p>
@@ -95,7 +96,8 @@ document.getElementById('functions1').innerHTML=toCelsius(100);
   		age: 50,
  		eyeColor: "blue",
  		fullName: function objects() {return this.firstName +" "+lastName}</pre>
- <p>document.getElementById('objects1').innerHTML=person.<b>fullName()</b>;</p> 
+ <p>document.getElementById('objects1').innerHTML=person.<b>fullName()</b>;</p>
+
 <p id="objects1"></p>
 <script type="text/javascript">
 	const personObjects1 = {
@@ -114,6 +116,7 @@ document.getElementById('functions1').innerHTML=toCelsius(100);
 <p id="events1">ngay gio</p>
 <button onclick="displayDate()">Thay doi cho khac</button>
 <div onmouseover="this.style.backgroundColor='red'">Re chuot len dong nay</div>
+<div onmouseover="this.innerHTML='thay doi'">Re chuot len dong nay</div>
 
 <p>JS string-----</p>
 <h3>Escape Character: \</h3>
@@ -139,9 +142,9 @@ document.getElementById('functions1').innerHTML=toCelsius(100);
 <p></p>
 <p id="string5"></p>
 <script type="text/javascript">
-	let x = "John"
-	let y = new String("John")
-	document.getElementById('string5').innerHTML= x==y
+	let xstring5 = "John"
+	let ystring5 = new String("John")
+	document.getElementById('string5').innerHTML= xstring5==ystring5
 </script>
 <h3>JS string Methods-----</h3>
 <p>- <b>slice(start, end)</b> -> string[start] - string[end-1] (string cu khong thay doi</p>
@@ -374,7 +377,7 @@ let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;</pre>
 </script>
 <p><b>Note:</b>toFixed(2) so thap phan</p>
 
-< pre>let header = "Templates Literals";
+<pre>let header = "Templates Literals";
 let tags = ["template literals", "javascript", "es6"];
 
 let html = `< h2>${header}< /h2>< ul>`;
@@ -382,7 +385,7 @@ for (const x of tags) {
   html += `< li>${x}< /li>`;
 }
 
-html += `< /ul>`;< /pre>
+html += `< /ul>`;</pre>
 <p id="templates4"></p>
 <script type="text/javascript">
 	let header = "Templates Literals";
@@ -656,7 +659,7 @@ function textSortArray3b() {
   document.getElementById("sortArray3").innerHTML = textSortArray3a;
 }
 </script>
-<h4>tim MAX va MIN</h4>
+<h4 id="apply1b"><a href="#apply1a">tim MAX va MIN</a></h4>
 <p>Co the dung sort. Sau do lay gia tri array[0] va array[length-1]</p>
 <h4>Math.max()</h4>
 <pre>function myArrayMax(arr) {
@@ -1242,6 +1245,11 @@ Math.sign(4);    // returns 1</pre>
 <h4>Math.sqrt()</h4>
 <pre>Math.sqrt(64);      // returns 8</pre>
 <pre>Math.pow(64.1/2)</pre>
+<h4>Math.cbrt()</h4>
+<p>tra ve can bac 2 cua x</p>
+<pre>Math.cbrt(8);    // returns 2
+Math.cbrt(64);    // returns 4
+Math.cbrt(125);    // returns 5</pre>
 <h4>Math.abs()</h4>
 <p>Gia tri tuyet doi</p>
 <pre>Math.abs(-4.7);     // returns 4.7</pre>
@@ -1310,7 +1318,7 @@ document.getElementById("booleans1").innerHTML =
 <h2>JS Comparisons---</h2>
 <h4>variablename = (condition) ? value1:value2 </h4>
 
-<input id="comparisons1A" value="17"/>
+<input id="comparisons1A"/>
 <button onclick="funcComparisons1()">kiem tra</button>
 <p id="comparisons1B"></p>
 <script type="text/javascript">
@@ -1414,6 +1422,7 @@ for (let i = 0; i < cars.length; i++) {
 }</pre>
 <h2>JavaScript For In---</h2>
 <h4>loop in Object</h4>
+<p>Lap qua cac thuoc tinh property</p>
 <pre>for (key in object) {
   // code block to be executed
 }</pre>
@@ -1429,6 +1438,25 @@ for (let x in person) {
 }</pre>
 <p><b>Note</b>: chay duoc trong object {} va trong array []</p>
 <p><b>Note</b>: Neu thu tu index quan trong trong tinh toan, thi khong nen su dung for in. Vi thu tu co the khong theo mong muon. Thay vao do, dung for loop, for of, array.forEach()</p>
+<pre>const person = {fname:"John", lname:"Doe", age:25}; 
+
+let txt = "";
+for (let x in person) {
+  txt += person[x] + " ";
+}
+</pre>
+<p>ket qua</p>
+<pre>undefined
+n
+d
+e
+f
+i
+n
+e
+d
+<</pre>
+<p><b>Note</b>: "in" tra ra gia tri, "of" vong lap</p>
 <h2>JavaScript For Of----</h2>
 <pre>for (variable of iterable) {
   // code block to be executed
@@ -1856,7 +1884,11 @@ function myFunction() {
   }
 };
 document.getElementById("demo").innerHTML = person.fullName();</pre>
-
+ <p><u>Cach 2</u></p>
+<pre>get fullName() {
+  return this.firstName +" "+lastName}
+ };
+document.getElementById("demo").innerHTML=persion.fullName</pre>
 <p id="keyword1"></p>
 <script type="text/javascript">
 	const personKeyword1 = {
@@ -2120,17 +2152,549 @@ for (let i = 0; i < l; i++) {</pre>
 <p>su dung nhu 1 bien</p>
 <pre>const obj = document.getElementById("demo");
 obj.innerHTML = "Hello";</pre>
+<h2>JS Objects</h2>
+<h3>Object Definitions</h3>
+<p>cach 1</p>
+<pre>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};</pre>
+<p>cach 2</p>
+<pre>const person = {};
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue";</pre>
+<h3>JavaScript Object Properties</h3>
+<pre>objectName.property</pre>
+<pre>objectName["property"]</pre>
+<pre>objectName[expression]</pre>
+<h4>Add new properties</h4>
+<pre>person.nationality="English"</pre>
+<h4>delete</h4>
+<pre>xoa thuoc tinh</pre>
+<pre>delete person.nationality</pre>
+<pre>delete person["nationality"]</pre>
+<h4>Nested Objects</h4>
+<pre>myObj = {
+  name:"John",
+  age:30,
+  cars: {
+    car1:"Ford",
+    car2:"BMW",
+    car3:"Fiat"
+  }
+}</pre>
+<pre>=> muObj.cars.car1</pre>
+<pre>=> muObj.cars.["car1"]</pre>
+<pre>=> muObj["cars"]["car1"]</pre>
+<h4>Nested Arrays and Objects</h4>
+<pre>const myObj = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", "models":["Fiesta", "Focus", "Mustang"]},
+    {name:"BMW", "models":["320", "X3", "X5"]},
+    {name:"Fiat", "models":["500", "Panda"]}
+  ]
+}</pre>
+<p><b>Note</b>: dung for in</p>
+<pre>for (let i in myObj.cars) {
+  x += "< h2>" + myObj.cars[i].name + "< /h2>";
+  for (let j in myObj.cars[i].models) {
+    x += myObj.cars[i].models[j] + "< br>";
+  }
+}</pre>
+<p id="properties1"></p>
+<script type="text/javascript">
+	const myObjProperties1 = {
+  name: "John",
+  age: 30,
+  cars: [
+    {name:"Ford", "models":["Fiesta", "Focus", "Mustang"]},
+    {name:"BMW", "models":["320", "X3", "X5"]},
+    {name:"Fiat", "models":["500", "Panda"]}
+    ]
+  };
+  let xProperties1 ="";
+  for (let i in myObjProperties1.cars) {
+    xProperties1 += "<h3>"+myObjProperties1.cars[i].name+"</h3><ul>"
+      for (let j in myObjProperties1.cars[i].models) {
+      	xProperties1 += "<li>"+myObjProperties1.cars[i].models[j]+"</li>"
+      }
+      xProperties1 += "</ul>";
+  }
+  document.getElementById('properties1').innerHTML=xProperties1
+</script>
+<h3>JavaScript Display Objects</h3>
+<ul>
+	<li>by name</li>
+	<li>by loop for in</li>
+	<li>Object.value() => string</li>
+	<li>JSON.stringify()</li>
+</ul>
+<h4>JSON.stringify()</h4>
+<p>Khong hien thi duoc function</p>
+<pre>const person = {
+  name: "John",
+  age: function () {return 30;}
+};
+person.age = person.age.toString();
+
+let myString = JSON.stringify(person);</pre>
+<p>{"name":"John","age":"function () {return 30;}"}</p>
+<h4>Object.defineProperty()</h4>
+<pre>// Define object
+const obj = {counter : 0};
+
+// Define setters
+Object.defineProperty(obj, "reset", {
+  get : function () {this.counter = 0;}
+});
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (value) {this.counter -= value;}
+});
+
+// Play with the counter:
+obj.reset;
+obj.add = 5;
+obj.subtract = 1;
+obj.increment;
+obj.decrement;</pre>
+<p id="display1"></p>
+<script type="text/javascript">
+	const objdisplay1 = {counter: 0};
+	Object.defineProperty(objdisplay1, "reset", {
+		get : function () {this.counter = 3}
+	});
+	Object.defineProperty(objdisplay1, "increment", {
+		get : function () {this.counter++}
+	})
+	Object.defineProperty(objdisplay1, "decrement", {
+		get : function () {this.counter--;}
+	});
+	Object.defineProperty(objdisplay1, "add", {
+    set : function (value) {this.counter += value}
+	});
+	// Object.defineProperty(obj, "subtract", {
+	// 	set : function (value) {this.counter -= value;}
+	// });	
+	objdisplay1.reset;
+  objdisplay1.add = 1;
+  objdisplay1.increment;
+  objdisplay1.decrement;
+	document.getElementById('display1').innerHTML=objdisplay1.counter
+</script>
+<h3>prototype Property</h3>
+<p>Tao thuoc tinh moi</p>
+<pre>function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.nationality = "English";</pre>
+<pre>function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+
+Person.prototype.name = function() {
+  return this.firstName + " " + this.lastName;
+};</pre>
+<h3>JavaScript ES5 Object Methods</h3>
+<h4>Changing a Property Value</h4>
+<pre>Object.defineProperty(object, property, {value : value})</pre>
+<pre>const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+
+// Change a property
+Object.defineProperty(person, "language", {value : "NO"});</pre>
+<p id="reference1"></p>
+<script type="text/javascript">
+	const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+Object.defineProperty(person, "language", {value : "NO"})
+document.getElementById('reference1').innerHTML=person.language
+</script>
+<h4>Adding a Property</h4>
+<pre>// Create an object:
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  language : "EN"
+};
+
+// Add a property
+Object.defineProperty(person, "year", {value:"2008"});</pre>
+<p><b>Note</b>: tu dong them vao 1 property neu name khac</p>
+<pre>//Create an object
+const person = {firstName:"John", lastName:"Doe"};
+
+// Define a getter
+Object.defineProperty(person, "fullName", {
+  get: function () {return this.firstName + " " + this.lastName;}
+});</pre>
+<h2>JS Function</h2>
+<h3>JavaScript Function Definitions</h3>
+<p>Ham co the luu duoi dang bien, va duoc su dung nhu 1 ham</p>
+<pre>const x = function (a, b) {return a * b};
+let z = x(4, 3);</pre>
+<h3>Function Call</h3>
+<ul><li>Call() 1 doi so</li></ul>
+<pre>const person = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+const person2 = {
+  firstName:"Mary",
+  lastName: "Doe"
+}
+
+// This will return "Mary Doe"
+person.fullName.call(person2);</pre>
+<ul><li>Call() nhieu doi so</li></ul>
+<pre>const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+person.fullName.call(person1, "Oslo", "Norway");</pre>
+<p>ket qua: John Doe,Oslo,Norway</p>
+<h3>Function Apply</h3>
+<p><b>Note</b>: apply() giong voi call()</p>
+<p><b>Khac</b>: apply() nhan mang, call() nhan tung thanh phan rieng biet</p>
+<p>apply() dung voi array se tien loi hon</p>
+<pre>const person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+
+const person1 = {
+  firstName:"John",
+  lastName: "Doe"
+}
+
+person.fullName.apply(person1, ["Oslo", "Norway"]);</pre>
+<h4 id="apply1a"><a href="#apply1b">Max/Min</a></h4>
+<pre>Math.max(1,2,3);  // Will return 3</pre>
+<pre>let arr = [1,2,3]
+Math.max(arr);  // Will return NaN</pre>
+<p>Vi array khong co method max(). Cac thay the</p>
+<pre>
+  let arr = [1,2,3]
+  Math.max(null, arr);  // Will return 3
+</pre>
+<p><b>Note</b>: doi so null khong quan trong (thay the bat ki chu khac: " ", match, any)</p>
+<pre>const add = (function () {
+  let counter = 0;
+  return function () {counter += 1; return counter;}
+})();
+
+function myFunction(){
+  document.getElementById("demo").innerHTML = add();
+}</pre>
+<p><b>Note</b>: ham cha, se dem 1 lan, va do'ng lai. ham con return function se goi lai nhieu lan, khong qua ham cha</p>
+<h2>JS Classes</h2>
+<h3>JavaScript Class Inheritance</h3>
+<h4>extends</h4>
+<p>ke thua lop cha</p>
+<pre>class Car {
+  constructor(brand) {
+    this.carname = brand;
+  }
+  present() {
+    return 'I have a ' + this.carname;
+  }
+}
+
+class Model extends Car {
+  constructor(brand, mod) {
+    super(brand);
+    this.model = mod;
+  }
+  show(){
+    return this.present() + ', it is a ' + this.model;
+  }
+}
+
+let myCar = new Model("Ford","Mustang");
+document.getElementById('inheritance1').innerHTML=myCar.show()</pre>
+<p id="inheritance1"></p>
+<script>
+	class Carinheritance1 {
+		constructor(brand) {
+			this.carname = brand;
+		}
+		present() {
+			return 'I have a ' + this.carname;
+		}
+	}
+
+	class Modelinheritance1 extends Carinheritance1 {
+		constructor(brand, mod) {
+			super(brand);
+			this.model = mod;
+		}
+		show(){
+			return this.present() + ', it is a ' + this.model;
+		}
+	}
+
+	let myCarinheritance1 = new Modelinheritance1("Ford","Mustang");
+	document.getElementById('inheritance1').innerHTML=myCarinheritance1.show()
+</script>
+<h4>getter va setter</h4>
+<pre>
+	class Car {
+		constructor(brand) {
+			this.carname = brand;
+		}
+		get cnam() {
+			return this.carname; 
+		}
+		set cnam(x) {
+			this.carname = x;
+		}
+	}
+  let myCar = new Car("Ford")
+  document.getElement('demo').innerHTML = myCar.cnam
+</pre>
+<pre>	class Car {
+		constructor(brand) {
+			this._carname = brand;
+		}
+		get cnam() {
+			return this._carname; 
+		}
+		set cnam(x) {
+			this._carname = x;
+		}
+	}
+  let myCar = new Car("Ford")
+  document.getElement('demo').innerHTML = myCar.carname</pre>
+<p>ket qua: {"_carname":"Ford"}</p>
+<h2>JS Async</h2>
+<h3>JS Callbacks</h3>
+<pre>function myDisplayer(some) {
+  document.getElementById("demo").innerHTML = some;
+}
+
+function myCalculator(num1, num2, myCallback) {
+  let sum = num1 + num2;
+  myCallback(sum);
+}
+
+myCalculator(5, 5, myDisplayer);</pre>
+<p>doi so la 1 ham, se khong co dau ngoac()</p>
+<pre>right: myCalculator(5, 5, myDisplayer
+wrong: myCalculator(5, 5, myDisplayer());</pre>
 
 
+<h1 class="body">JS HTML DOM</h1>
+<h2 class="body">DOM Events</h2>
+<h4>onclick</h4>
+<pre>onclick="changeText(this)">Click on this text!</pre>
+<h3 onclick="this.innerHTML='oh no, da thay doi 1'">click chuot le day 1</h3>
+<pre>
+	onclick="changeText(this)">Click on this text!
+	function changeText(id) {
+  id.innerHTML = "Ooops!";
+}
+</pre>
+<h3 onclick="domEvent1(this)">click chuot le day 2</h3>
+<script type="text/javascript">
+	function domEvent1(id) {
+		id.innerHTML = "oh no, da thay doi 2"
+	}
+</script>
+<p>co the thuc hien phan tu tren HTML DOM</p>
+<pre>document.getElementById("myBtn").onclick = displayDate;</pre>
+<button id="domEvent2a">Click ngay</button>
+<p id="domEvent2b"></p>
+<script type="text/javascript">
+  document.getElementById('domEvent2a').onclick=domEvent2A;
+	function domEvent2A() {
+		document.getElementById('domEvent2b').innerHTML=Date();
+	}
+</script>
+<h4>onload va onunloda</h4>
+<p>nhiem vu check, cap nhat khi mo/dong duyet trinh</p>
+<pre>
+  body>
+  onload="checkCookies()
+	script>
+	function checkCookies() {
+  var text = "";
+  if (navigator.cookieEnabled == true) {
+    text = "Cookies are enabled.";
+  } else {
+    text = "Cookies are not enabled.";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</pre>
+<h4>onchange</h4>
+<pre>input type="text" id="fname" onchange="upperCase()"</pre>
+<p>Enter your name: <input type="text" id="domEvent3" onchange="funcDomEvent3()"></p>
+<script type="text/javascript">
+	function funcDomEvent3(){
+		let x = document.getElementById('domEvent3');
+		x.value = x.value.toUpperCase();
+	}
+</script>
+<h4>onmouseover va onmouseout</h4>
+<p id="domEvent4" onmouseover="funcDomEvent4a(this)" onmouseout="funcDomEvent4b(this)" style="background: skyblue;font-size: 16px;width: 120px;height: 30px;padding: 10px;">Mouse Over Me</p>
+<script type="text/javascript">
+	function funcDomEvent4a(x){
+		x.innerHTML='Thank you';
+	}
+	function funcDomEvent4b(x){
+		x.innerHTML='Mouse Over Me'
+	}
+</script>
 
+<!-- DOM Event Listener start-->
 
+<h2 class="body">DOM Event Listener</h2>
+<h3> addEventListener()</h3>
+	<pre>element.addEventListener(event, function, useCapture);</pre>
+	<ul>
+		<li>"click", "mousedown" <a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="new">DOM event</a></li>
+		<li>function</li>
+		<li>???useCapture</li>
+	</ul>
+	<p><b>Note</b>: khong dung tien to' "on" cua onclick trong event, chi dung "click"</p>
 
+	<pre>var x = document.getElementById("myBtn");
+x.addEventListener("click", myFunction);
+x.addEventListener("click", someOtherFunction);
 
+function myFunction() {
+  alert ("Hello World!");
+}
 
+function someOtherFunction() {
+  alert ("This function was also executed!");
+}</pre>
+<button id="eventListener1">Try it</button>
 
+<script>
+var texteventListener1 = document.getElementById("eventListener1");
+texteventListener1.addEventListener("click", functexteventListener1);
+texteventListener1.addEventListener("click", functexteventListener2);
 
+function functexteventListener1() {
+  alert ("Hello World!");
+}
 
+function functexteventListener2() {
+  alert ("This function was also executed!");
+}
+</script>
+	<h4>Neu truyen tham so, hay dung function() an</h4>
+<pre>element.addEventListener("click", function(){ myFunction(p1, p2); });</pre>
+	<h4>useCapture: su kien nao duoc su ly truoc?</h4>
+	<p>1 click, 2 event</p>
+	<pre>
+	&lt;div (event 1)>
+	  &lt;p (event2)>&lt;/p>
+	&lt;/div>
+	</pre>
+	<ul>
+		<li>false (default): event 2 -> event 1</li>
+		<li>true: event 1 -> event 2</li>
+	</ul>
+<h3>removeEventListener()</h3>
+<pre>element.removeEventListener("mousemove", myFunction);</pre>
 
+<!-- DOM Event Listener end-->
+
+<!-- JS Browser BOM -->
+
+<h1 class="body">JS Browser BOM</h1>
+
+<!-- JS Timing start-->
+
+<h2 class="body">JS Timing</h2>
+<h4>setTimeout(function,milliseconds)</h4>
+<p>thuc hien function sau 1 thoi gian chi dinh</p>
+<button onclick="setTimeout(funcTiming1,1000)">Try it</button>
+<script type="text/javascript">
+	
+	function funcTiming1() {
+		alert('Hello, 3000ms')
+	}
+</script>
+<h4>clearTimeout()</h4>
+<p>Dung thuc thi function theo thoi gian chi dinh</p>
+<pre>onclick="myVar=setTimeout(funcTiming1,3000)">Run it</pre>
+<pre>onclick="clearTimeout(myVar)">Stop it</pre>
+<button onclick="myVar=setTimeout(funcTiming1,3000)">Run it</button>
+<button onclick="clearTimeout(myVar)">Stop it</button>
+<script type="text/javascript">
+	
+	function funcTiming1() {
+		alert('Hello, 3000ms')
+	}
+</script>
+
+<h4>setInterval(function,milliseconds)</h4>
+<p>repeat lai function theo thoi gian chi dinh</p>
+<pre>setInterval(myTimer, 1000);
+
+function myTimer() {
+  const d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}</pre>
+<div id="timing2b">loang...</div><span id="timing2a"> </span>
+<script type="text/javascript">
+	let textFuncTiming2A= setInterval(funcTiming2,1000)
+	let textFuncTiming2B=document.getElementById('timing2b')
+	let textFuncTiming2C=document.getElementById('timing2a')
+	function funcTiming2(){
+		let textFuncTiming2 = new Date()
+		textFuncTiming2C.innerHTML=textFuncTiming2.toLocaleDateString()
+		textFuncTiming2B.innerHTML=textFuncTiming2.toLocaleTimeString()
+	}
+</script>
+<p>???question: ngay thoi diem xac dinh, thuc thi function</p>
+<h4>clearInterval()</h4>
+<button onclick="funcTiming2()">Start time</button>
+<button onclick="clearInterval(textFuncTiming2A)">Stop time</button>
+<p>???Dung dong ho, va start lai (nhung khong lam duoc)</p>
 
 
 
