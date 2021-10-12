@@ -7,6 +7,911 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<h1 class="body">JS tren F8</h1>
+<h2 class="body">1 so ham built-in</h2>
+<ul>
+	<li>alert</li>
+	<li>console</li>
+	<p>console.log</p>
+	<p>console.warn</p>
+	<p>console.error</p>
+	<li>confirm</li>
+	<p>tao hop thoai xac nhan, giong voi alert</p>
+	<li>prompt</li>
+	<pre>prompt('nhap so tuoi cua	')</pre>
+	<li>setTimeout</li>
+	<p>khoang thoi gian se thuc hien 1 lan function</p>
+	<pre>setTimeout(function() {
+
+}, 3000)</pre>
+	<li>setInterval</li>
+	<p>lap lai function sau khoang thoi gian ms</p>
+	<pre>setInterval(function() {
+    console.log('lap lai random ' + Math.random())
+}, 1000)</pre>
+</ul>
+<h2 class="body">1 so luu y ve toan tu</h2>
+<h3> ++/--</h3>
+<ul>
+	<li>prefix: ++i/--i</li>
+	<p>Viec 1: a = 1 => a = a + 1 = > a = 2</p>
+	<p>Viec 2: lay gia tri da tinh la a = 2 gan cho b</p>
+	<pre>
+var a = 1;
+var b = ++a;
+
+console.log('a '  + a); // a = 2
+console.log('b ' + b);  // b = 2
+	</pre>
+
+	<li>postfix: i++/i--</li>
+	<p>Viec 1: a = 1 => a = a + 1 = > a = 2</p>
+	<p>Viec 2: lay gia tri chua tinh la a = 1 gan cho b</p>
+	<pre>
+var a = 1;
+var b = a++;
+
+console.log('a '  + a); // a = 2
+console.log('b ' + b);  // b = 1
+	</pre>
+</ul>
+<h3>toan tu so sanh</h3>
+<pre>
+	var result = 'a' && 'b' && 'c';
+console.log(result) // result = c
+</pre>
+<p>true se lay ben phai</p>
+<pre>
+	var result = 'a' || 'b' || 'c';
+console.log(result) // result = a
+</pre>
+<p>true se lay ben trai</p>
+<h2 class="body">string methods</h2>
+<ul>
+	<li>length</li>
+	<p>fullName.length</p>
+	<li>find index</li>
+	<p>indexOf(value, start)</p>
+	<p>lastIndexOf()</p>
+	<p>search(value) (ko co start)</p>
+	<li>cut string</li>
+	<p>slice()</p>
+	<pre>
+var myString = 'Hoc JS tai F8!'
+console.log(myString.slice(4,6)) // JS dem xuoi 0 1 2 3 4
+console.log(myString.slice(4))  // JS tai F8!
+console.log(myString.slice(-3, -1)) // F8 dem nguoc  -1 -2 -3
+	</pre>
+	<li>replace()</li>
+	<li>convert</li>
+	<p>toUpperCase()</p>
+	<p>toLowerCase()</p>
+	<li>trim() loai bo khoang trang 2 ben</li>
+	<li>split tach chuoi thanh array</li>
+	<pre>
+var myString = 'js, php, html'
+console.log(myString.split(', ')) //["js", "php", "html"]
+	</pre>
+	<li>get a character by index</li>
+	<p>lay ki tu theo index</p>
+	<pre>
+var myString = 'js, php, html';
+console.log(myString.charAt(1)) // return s
+	</pre>
+	<li>padStart() padEnd()</li>
+	<pre>
+let text = "5";
+text.padStart(5,0)    // Returns 0005
+
+let text = "a";
+text.padEnd(4,0)     // Returns 5000
+	</pre>
+	<li>concat()</li>
+</ul>
+
+<h2 class="body">array methods</h2>
+<h3>Phan 1</h3>
+<ul>
+	<li>toString()</li>
+	<p>bat buoc co dau phay</p>
+	<pre>javascript,PHP,Ruby</pre>
+	<li>join()</li>
+	<pre>
+		languages.join(' - ')
+		javascript - PHP - Ruby
+	</pre>
+	<li>pop()</li>
+	<pre>
+var languages = ['javascript', 'PHP', 'Ruby']
+console.log(languages) // xóa phần tử cuối
+console.log(languages.pop()) // trả về phân tử đã xóa 
+	</pre>
+	<li>push() them phan tu vao cuoi array</li>
+	<li>shift() (giong pop) xoa phan tu dau, tra ve phan tu da xoa</li>
+	<li>unshift() (gong voi push) them vao dau array</li>
+	<li>splice(pointer, countdelete, add)</li>
+	<p>array.splice(2, 1, 'PHP'): con trỏ ở vị trí số 2, xóa đi 1 phần tử, thêm vào PHP</p>
+	<pre>
+var languages = ['javascript', 'PHP', 'Ruby', 'html']
+console.log(languages.splice(2, 1, 'Node')) // ['Ruby']
+console.log(languages) //["javascript", "PHP", "Node", "html"]
+	</pre>
+	<li>concat()</li>
+	<li>slice()</li>
+</ul>
+<h3>Phan 2: tat ca tham so truyn vao la function</h3>
+<b>array.method(function())</b>
+<ul>
+	<li>forEach(): duyet qua tat ca phan tu array</li>
+	<pre>
+	courses.forEach(function(course, index) {
+	    console.log(course, index)
+	})
+
+	cach 2:
+	function myFunction(course, index) {
+	    console.log(course, index)
+	}
+	courses.forEach(myFunction)
+	</pre>
+	<p>call back/function truyen vao method, khong can ()</p>
+	<li>every(): kiem tra tat ca cac phan tu thoa dieu kien khong? <b>-> true/flase</b></li>
+	<pre>
+	var result = courses.every(function(course, index) {
+	    console.log(course.id)
+	    return course.className === 'f8'
+	})
+
+	console.log(result)
+	</pre>
+<p><b>Vong lap kiem tra lan luot giong &&. vi the bat buoc phai co "return" tra ket qua cho cong lap ke</b></p>
+	<li>some(): (giong every()) kiem tra 1 phan tu true, se tra ve true</li>
+	<li>find(): tim 1 phan tu dau tien</li>
+	<li>filter(): tra ve tat ca phan tu thoa dieu kien</li>
+	<li>map(): muon tao ra 1 mang moi dua tren mang cu</li>
+	<pre>
+		
+var newCourses = courses.map(function(course){
+    return {
+        id: course.id,
+        name: `khoa hoc ${course.name}`,
+        coinText: `Gia: ${course.coin}`
+    }
+})
+	</pre>
+	<li>reduce()</li>
+	<pre>
+function calc(initValue, currentValue, index, array){
+    i++
+    console.table({
+        'luot': i,
+        'index': index,
+        // 'array': array,
+        'Khoi dau': initValue,
+        'Gia hien tai': currentValue.coin,
+        'total': initValue + currentValue.coin
+    })
+    console.log(array)
+    return initValue + currentValue.coin
+}
+
+courses.reduce(calc, 0)
+	</pre>
+<p>vi du ve mang sau</p>
+<pre>
+	var array = [1,2,[3,4],5,[6,[7,8],9],10];
+
+
+	function convert(initValue, currentValue) {
+	    return initValue.concat(currentValue)
+	}
+
+	var newarray = array.reduce(convert, []).reduce(convert, [])
+</pre>
+	<li>includes(): co san trong String/Array</li>
+	<pre>
+		// co san
+		Array.prototype.includes
+		String.prototype.includes
+
+		//khong co
+		Number.prototype.includes
+		Date.ptrototype.includes
+		...
+	</pre>
+</ul>
+<h2 class="body">Tham so Function</h2>
+<h3>arguments</h3>
+<p>nhan tat ca cac doi' so duoc truyen vao ma khong can khai bao tham so </p>
+<pre>
+function writeLog() {
+    console.log(arguments)
+}
+writeLog(1,2,3,4,5)
+</pre>
+<h2 class="body">cac loai function</h2>
+<ul>
+	<li>declaration function</li>
+	<pre>
+showMessage() // co the goi
+
+function showMessage(){
+  console.log('noi dung message')
+}
+
+showMessage() // co the goi
+	</pre>
+	<li>expression function</li>
+	<p>co the dat ten ham, voi muc dich hieu duoc muc dich ham</p>
+	<pre>
+showMessage2()// khong the goi
+
+var showMessage2 = function(){
+    console.log('noi dung message')
+}
+
+setTimeout(function() {
+    console.log('noi dung message')
+})
+
+var myObject = {
+    myFunction: function(){
+        console.log('noi dung message')
+    }
+}
+
+showMessage2()// co the goi
+	</pre>
+	<li>Arrow function (hoc khoa nang cao javascript	</li>
+</ul>
+<h2 class="body">Object</h2>
+	<pre>
+	//tao key moi
+	var newkey = 'phone'
+
+	var myInfo = {
+	    name: 'lam',
+	    age: 18,
+	    address: 'HCM',
+	    [newkey]: 123
+	}
+
+	// tao key moi
+	myInfo.mail = '@gmail'
+
+	console.log(myInfo)
+
+	//truy cap gia tri
+	console.log(myInfo['mail'])
+
+	//xoa key
+	delete myInfo.address
+	</pre>
+<h3>object constructor</h3>
+<pre>
+	// co the dat ten var User = function()
+	function User(fname, lname, age) {
+	    this.fname = fname,
+	    this.lname = lname,
+	    this.age = age,
+	    this.fullName = function() {
+	        return `${this.fname} ${this.lname}` 
+	    } 
+	}
+
+	var author = new User('lam', 'tran', 18)
+	var user = new User('Tien', 'Nguyen', 16)
+
+	author['phone'] = 1234;
+	user['mail'] = '@gmail';
+
+	console.log(author.constructor === User)
+	console.log(author)
+	console.log(user.fullName)
+	console.log(user)
+</pre>
+<h3>object prototype </h3>
+<p>Đối tượng: tạo {key: value} mới. dùng user.className = 'F8'.</p>
+<p>với class constructor User: tạo mới, dùng User.prototype.className = 'F8' </p>
+<p>-> các đối tượng được tạo từ constructor sẽ kế thừa [key: value] mới này</p>
+<pre>
+	User.prototype.className = 'F8'
+</pre>
+<h2 class="body">Ternary Operator Toan tu 3 ngoi</h2>
+<pre>
+	var a = 1;
+	var b = 2;
+	var c = a > b ? a : b;
+</pre>
+<h2 class="body">Vong lap for</h2>
+<h3>for loop</h3>
+<h3>for in</h3>
+<p>lap qua key cua object. co the lap qua array va string</p>
+<h3>for of</h3>
+<p>khong lap qua object</p>
+<pre>
+	var myInfo = {
+	  lname: 'lam',
+	  fname: 'tran',
+	  age: 18
+	}
+	console.log(Object.keys(myInfo))
+	console.log(Object.values(myInfo))
+</pre>
+<h3>while loop</h3>
+<pre>
+	var i = 0
+	while (i < 100) {
+		i++
+		console.log(i)
+	}
+</pre>
+<h3>do while</h3>
+<pre>
+	do {
+		//code
+	} while (condition)
+</pre>
+<h2>Math Object</h2>
+<ul>
+	<li>Math.PI</li>
+	<li>Math.abs(): gia tri tuyet doi</li>
+	<li>Math.round(): so nguyen, lam tron chuan</li>
+	<li>Math.ceil(): lam tron tren</li>
+	<li>Math.floor(): lam tron duoi</li>
+	<li>Math.random()</li>
+	<li>Math.min</li>
+	<li>Math.max</li>
+</ul>
+<h2 class="body">Tu tao method</h2>
+<pre>
+Array.prototype.forEach2 = function(callback){
+    for (const index in this) {
+       // console.log(index, this.hasOwnProperty(index), this[index])
+        if (this.hasOwnProperty.call(this, index)) {
+            callback(this[index], index)
+            
+        }
+    }
+}
+</pre>
+<p><b>Luu y</b></p>
+<p>- dung vong lap for loop, se lap qua luon length khoi tao, va phuong thuc khoi tao</p>
+<p>- dung hasOwnProperty -> chi nhan phan tu thuc</p>
+<p>- for of khong lay duoc key(index), khong dung duoc</p>
+<h2 class="body">HTML DOM </h2>
+<h2 class="body">element methods</h2>
+<p>lay element</p>
+<ul>
+	
+<li>id</li>
+<pre>var headingNode = document.getElementById('string')</pre>
+<li>class</li>
+<pre>
+	var value = document.getElementsByClassName('head')
+	-> HTMLCollection(2) [p.head, p.head]
+</pre>
+<p>HTMLCollectiion giong nhu array, khac la co cac method khac</p>
+<pre>console.log(HTMLCollection.prototype)</pre>
+<li>tag name</li>
+<li>CSS select</li>
+<pre>
+	var value = document.querySelector('body .head:nth-child(2)')
+
+	var value = document.querySelectorAll('body .head')
+	-> NodeList(2) [p.head, p.head]
+</pre>
+<li>HTML collection</li>
+<pre>
+    &lt;form action="" id="form-1">&lt;/form>
+    &lt;form action="" id="form-2">&lt;/form>
+    &lt;form action="" id="form-3">&lt;/form>
+
+    -
+    document.forms
+    document.forms[0]
+    document.forms['form-1']
+    document.forms.testForm
+</pre>
+
+<pre>
+    &lt;a href="" name = 'name'>test&lt;/a>
+
+    -
+    document.anchors
+</pre>
+</ul>
+<h2 class="body">DOM Attribute</h2>
+
+<ul>
+	<li>Tao/lay attribute hop le</li>
+	<pre>
+	heading.title = 'head'
+	console.log(heading.title)
+	</pre>
+	<li>Tao/lay attribute co the khong hop le</li>
+	<pre>
+	heading.setAttribute('id', 'idhead')
+	console.log(heading.getAttribute('id'))
+	</pre>
+</ul>
+<h2 class="body">innerText/textContent</h2>
+<ul>
+	<pre>
+	&lt;h1>
+	        
+	   &lt;span style="display: none"> Học JS&lt;/span>
+	   tại F8
+
+	&lt;/h1>
+	</pre>
+	<li>get text</li>
+	<pre>
+		console.log(document.getElementsByTagName('h1')[0].innerText)
+		-> tại F8
+		(tra ra nhung gi nhin thay tren web)
+
+		console.log(document.getElementsByTagName('h1')[0].textContent)
+		-> 
+		   Học JS
+		   tại F8
+
+		(tra ra nhung gi tren source)
+	</pre>
+	<li>set text</li>
+	<pre>
+		getElementsByTagName('h1')[0].innerText = 'new content'
+		
+	</pre>
+</ul>
+<h2 class="body">innerHTML/outerHTML</h2>
+<ul>
+	<li>get</li>
+	<p>- innerHTML lay ra noi dung con</p>
+	<p>- outerHTML lay ra cha va con</p>
+	<li>set</li>
+	<p>- innerHTML thay doi noi dung con</p>
+	<p>- outerHTML thay doi toan bo noi dung cha va con</p>
+</ul>
+<h2 class="body">thuong dung property Element Node</h2>
+<h3>style</h3>
+<pre>
+	var css = document.querySelector('.main')
+
+	cach 1:
+	css.style.width = '200px';
+	css.style.height = '100px';
+	css.style.backgroundColor = 'red';
+
+	cach 2:
+	Object.assign(css.style, {
+	    width: '200px',
+	    height: '100px',
+	    backgroundColor: 'red'
+	})
+</pre>
+<h3>classList</h3>
+<ul>
+	<li>classList.add()</li>
+	<li>classList.contains()</li>
+	<li>classList.remove()</li>
+	<li>classList.toggle()</li>
+</ul>
+<h2 class="body">DOM events</h2>
+<a href="https://www.w3schools.com/jsref/dom_obj_event.asp" target="_blank">cac su kien</a>
+<h3>1. attribute events</h3>
+<pre>
+	&lt;h1 onclick="console.log(Math.random())">Học JS DOM tại F8/h1>
+</pre>
+<h3>2. assign event using the element node</h3>
+<pre>
+	boxElement1.onclick = function randomMath(){
+	    console.log(Math.random())
+	}
+</pre>
+<h3>Cac event thuong dung </h3>
+<ul>
+	<li><u>input/select</u></li>
+	<h4>.onchange/.oninput</h4>
+	<p>-onchange: event thay doi (input, textarea, select)</p>
+	<p>-oninput: nhap toi dau, lay toi do</p>
+	<li><u>keydown/keyup/onkeypress</u></li>
+	<p>- keydown: chạm xuống, xuất hiện ký tự, nhấc lên -> lệnh thực hiện lúc chạm xuống.  do đó value: 'trống'</p>
+	<p>- key up: chạm xuống, xuất hiện ký tự, nhấc lên -> lệnh thực hiện lúc nhấc lên. Do đó value: "ky tu"
+	</p>
+	<pre>
+		vi du voi keyboard
+
+inputElementText.onkeyup = function(e){
+    switch (e.which) {
+        case 27:
+        case 13:
+            console.log('Exit')    
+            break;
+        default:
+            break;
+    }
+}
+	</pre>
+	<p><b>which/keyCode</b></p>
+</ul>
+<h3>event methods thuong dung </h3>
+<ul>
+	<li>preventDefault()</li>
+	<p>vi du 1:</p>
+	<pre>
+    links[i].onclick = function(e) {
+        if (links.hasOwnProperty.call(links, i)) {
+            if(!e.target.href.startsWith('https://www.google.com/')) {
+            // if(!e.target.href.startsWith('https://f8.edu.vn/')) {
+                e.preventDefault()
+            }
+        }
+	</pre>
+	<p>vi du 2:</p>
+	<pre>
+	var ulElements = document.querySelector('ul')
+	console.log(ulElements)
+
+	ulElements.onmousedown = function(e) {
+	    e.preventDefault();
+	}
+	ulElements.onclick = function(e) {
+	    console.log(e.target.textContent)
+	}  
+	</pre>
+	<li>stopPropagation</li>
+</ul>
+<h2 class="body">Event listener (khac DOM event)</h2>
+<p>
+	1. Nhieu su kien lang nghe cung 1 luc
+</p>
+<p>
+	2. Khi lang nghe / Huy lang nghe
+</p>
+
+<pre>
+	buttonElement.addEventListener('click', work)
+
+	setTimeout(function(){
+	    buttonElement.removeEventListener('click', work)
+
+	}, 3000)
+</pre>
+<h2 class="body">JSON javascript Object Notation</h2>
+<p>1. dinh dang du lieu chuoi (ko phai kieu du lieu)</p>
+<p>2. JSON: number, String, Boolean, Null, Array, Object</p>
+<p>Ma hoa / Giai ma</p>
+<p>Encode / Decode</p>
+<p>Stringify / parse</p>
+<ul>
+	<li>JSON dau nhay don '', cac phan ben trong dau nhay kep ""</li>
+	<li>phan tu cuoi cung, ko co dau phay</li>
+	<pre>
+		var JSON = '["javascript", "PHP"]'
+		var JSON = '{"name":"javascript","age":18}'
+	</pre>
+</ul>
+<p>JSON.stringify() / JSON.parse()</p>
+<h2 class="body">Promise</h2>
+<h3>sync/Async</h3>
+<p>Dong bo / bat dong bo</p>
+<p>bat dong bo: setTimeout, setInterval, fetch, XMLHttpRequest, file reading javascript, request animation frame</p>
+<h3>cach hoat dong</h3>
+<pre>
+	
+	var promise = new Promise(
+	// executor
+	    function(resolve, reject){
+	        // logic
+	        // thanh cong: resolve
+	        // that bai: reject
+	        
+	        // resolve();
+	        reject();
+	})
+
+	promise
+	    .then(function(){
+	        console.log('thanh cong')
+	    })
+	    .catch(function(reject){
+	        console.log(reject)
+	    })
+	    .finally(function(){
+	        console.log('Done')
+	    })
+</pre>
+<p><u>return phia truoc la tham so dau vao cua phia sau</u></p>
+<pre>
+	.then(function(){
+		return 1
+	})
+	.then(function(data){
+		console.log(data)
+		return 2
+	})
+</pre>
+<p>bai tap 1 2 3</p>
+<pre>
+	function sleep(ms, number) {
+	    return new Promise(function(resolve){
+	        setTimeout(function(){
+	            resolve()
+	            console.log(number)
+	        }, ms);
+	    });
+	}
+	var t = 1000
+	sleep(t, 2)
+	    .then(function(){
+	        // console.log(data)
+	        return sleep(t, 3)
+	    })
+	    .then(function(){
+	        // console.log(data)
+	        return sleep(t, 4)
+	    })
+	    .finally(function(){
+	        console.log('done')
+	    })
+</pre>
+<h3>promise.resolve/reject/all</h3>
+<p>promise.all: khi chay promise song song nhau, va <b>khong phu thuoc nhau</b> va <b>dung ket qua chung</b> cua cac promise</p>
+<pre>
+	var promise1 = new Promise(
+	    function (resolve) {
+	        setTimeout(() => {
+	            resolve([1])
+	        }, 1000);
+	})
+	var promise2 = new Promise(
+	    function (resolve) {
+	        setTimeout(() => {
+	            resolve([2, 3])
+	        }, 2000);
+	})
+
+	Promise.all([promise1, promise2])
+	    .then(function (result) {
+	        console.log(result[0].concat(result[1]))
+	    })
+</pre>
+<p><a href="https://jsfiddle.net/tralam/y9tz8u2r/" target="_blank">Bai tap vi du ve promise</a></p>
+<h2 class="body">Fetch</h2>
+<p><a href="https://jsonplaceholder.typicode.com/" target="_blank">json placeholder</a></p>
+<pre>
+	var postApi = 'https://jsonplaceholder.typicode.com/posts'
+	fetch(postApi)
+	// stream luong du lieu tra ve
+	    .then(function(response){
+	        // console.log(response)
+	        // console.log(response.json())
+	        return response.json() //JSON.parse() luon roi
+	    })
+	    .then(function(posts){
+	        // console.log(posts)
+
+	        //cach 1-----------
+	        // var htmls = posts.map(function(post) {
+	        //     return `
+	        //         &lt;h2>${post.title}&lt;/h2>
+	        //         &lt;p>${post.body}&lt;/p>
+	        //     `
+	        // })
+	        // console.log(htmls.join(''))
+	        // document.querySelector('ul').innerHTML = htmls.join('')
+
+	        //cach 2-----------
+	        var htmls = ''
+	        posts.forEach(function(post) {
+	            return htmls +=`
+	            &lt;li>&lt;h2>${post.title}&lt;/h2>&lt;/li>
+	            &lt;p>${post.body}&lt;/p>
+	            `
+	        });
+	        // console.log(htmls)
+	        document.querySelector('ul').innerHTML = htmls
+	    })
+	    .catch(function(err){
+	        console.log('co loi')
+	    })
+</pre>
+<h3>JSON server (fake Api) / Mock API</h3>
+<p><a href="https://github.com/typicode/json-server" target="_blank">Cai dat</a></p>
+
+<h3>CRUD </h3>
+<ul>
+	<li>Creat -> POST</li>
+	<li>Read -> GET</li>
+	<li>Update -> PUT/PATCH</li>
+	<li>Delete -> DELETE</li>
+</ul>
+<h3>Postman</h3>
+<p>lam 4 hanh dong, ma khong can phai tao giao dien</p>
+<h2 class="body">ES6 ECMAScript6</h2>
+<h3>var/let/const</h3>
+<p>var: khi code thuan (let/const khi co dung thu vien)</p>
+<p>-const: khi nao khong can gan lai bien </p>
+<p>-let: khi can gan lai bien </p>
+<h3>Arrow function</h3>
+<pre>() => {}</pre>
+<p>Khong dung duoc</p>
+<ul>
+	<li>dung lam constructor</li>
+	<li>getFullName, tu this</li>
+</ul>
+<h3>Classes</h3>
+<p>cach khac tao ra lop nhu constructor</p>
+<pre>
+	//constructor function
+	function Course(name, price) {
+	    this.name = name,
+	    this.price = price
+	    this.getName = function(){
+	        return this.name
+	    }
+	}
+
+	class Course {
+		//constructor
+	    constructor(name, price){
+	        this.name = name,
+	        this.price = price
+	    }
+	    getName() {
+	        return this.name
+	    }
+	}
+
+	const phpCourse = new Course('PHP', 1000)
+	console.log(phpCourse)
+</pre>
+<h3>Dinh nghia nang cao Enhanced object literals</h3>
+<p>binh thuong</p>
+<pre>
+	var name = 'java';
+	var price = 1000
+	var course = {
+	    name: name,
+	    price: price,
+	    getName: function(){
+	        return this.name
+	    }
+	}
+</pre>
+<p>nang cao</p>
+<pre>
+	var name = 'java';
+	var price = 1000
+	var course = {
+	    name,
+	    price,
+	    getName(){
+	        return this.name
+	    }
+	}
+</pre>
+<p>nang cao</p>
+<pre>
+	var fieldName ='name';
+	var fielPrice = 'price'
+
+	var course = {
+	    [fieldName]: 'java',
+	    [fielPrice]: 1000
+	}
+
+	console.log(course)
+</pre>
+<h3>Destructuring & rest params</h3>
+<h4>array</h4>
+<pre>
+	var courses = ['java', 'PHP', 'Ruby']
+
+	var [b, a, c] = courses
+	console.log(a) // string PHP
+
+	var [a,...rest ] = courses;
+	
+	console.log(a)// string java
+	console.log(...rest)// string PHP, Ruby
+
+	console.log([...rest])// array ["PHP", "Ruby"]
+	console.log(rest)// array ["PHP", "Ruby"]
+</pre>
+<h4>object</h4>
+<pre>
+	var course = {
+	    name: 'java',
+	    des: 'mo ta',
+	    price: 1000,
+	    subCourse: {
+	        name: 'Nodejs'
+	    }
+	}
+
+	var {name: nameParent, des, price, subCourse: { name: nameChild}} = course
+
+	console.log(des, price) // string mo ta 1000
+	console.log(nameParent, nameChild) // string java Nodejs
+
+	var {name: nameParent, price, ...rest} = course
+
+	console.log({...rest}) //{des: "mo ta java", subCourse:{name: 'Nodejs'}
+	console.log(rest) //{des: "mo ta java", subCourse:{name: 'Nodejs'}
+</pre>
+<h3>Spread</h3>
+<h4>Array</h4>
+<pre>
+	var courses = ['java', 'PHP', 'HTML']
+	var numbers = [1,2]
+
+	var sum= [...numbers, ...courses]
+	console.log(sum)
+</pre>
+<h4>object</h4>
+<pre>
+	var course = {name: 'java'}
+	var price = {price:1000}
+
+	var result = {
+	    ...course,
+	    ...price
+	}
+	console.log(result) // {name: "java", price: 1000}
+</pre>
+<h4>param function</h4>
+<pre>
+	var courses = ['java', 'PHP', 'HTML']
+	function logger(a, ...rest){
+
+	    for (let i = 0; i < rest.length; i++) {
+	        console.log(i, rest[i])
+	        
+	    }
+	}
+	console.log(...courses) // java PHP HTML
+	logger(...courses) //0 "PHP" 1 "HTML"
+</pre>
+<h3>Tagged template literals</h3>
+<p>highlight`Hoc lap trinh ${course} tai ${brand} ngay ${date}!`</p>
+
+<pre>
+	var brand = 'F8';
+	var course = 'javascript';
+	var date = '9/2021'
+
+	function highlight([first, ...string], ...values){
+	    return html = values.reduce(function(start, current){
+	        return [...start, `<span>${current}</span>`, string.shift()]
+	    },[first])
+	}
+
+	highlight`Hoc lap trinh ${course} tai ${brand} ngay ${date}!`
+	console.log(html)
+</pre>
+<h3>Module </h3>
+<h4>export</h4>
+<pre>
+export default logger
+// export {default} from './logger.js'
+</pre>
+<h4>import</h4>
+<pre>
+import { TYPE_ERROR } from './constants.js'
+import logger from './logger/index.js'
+</pre>
+<h3>optional chaining(?.)</h3>
+<pre>
+if(adventurer.cat?.cat1?.cat2?.cat3){
+
+    console.log(adventurer.cat?.cat1.name)
+}
+</pre>
+
+
+<p class="body">------------------</p>
 <p id="dem1">JavaScript can change HTML content.</p>
 <button type="button" onclick='document.getElementById("dem1").innerHTML = "Hello JavaScript"';>click me</button>
 
@@ -1345,6 +2250,15 @@ document.getElementById("booleans1").innerHTML =
 </script>
 
 <h2>JavaScript if else and else if---</h2>
+<h3>if (value)</h3>
+<p>nhan gia tri value = false, gom 5 loai gia tri sau:</p>
+<ul>
+	<li>so 0</li>
+	<li>'' hoac null</li>
+	<li>undefined</li>
+	<li>NaN</li>
+	<li>false</li>
+</ul>
 <h4>new Date().getHours()</h4>
 <p id="ifelse1"></p>
 <script type="text/javascript">
@@ -1420,7 +2334,8 @@ for (let i = 0; i < cars.length; i++) {
 <pre>for (statement 1; statement 2; statement 3) {
   // code block to be executed
 }</pre>
-<h2>JavaScript For In---</h2>
+<h2 class="body">JavaScript For In---</h2>
+<p>lap qua key</p>
 <h4>loop in Object</h4>
 <p>Lap qua cac thuoc tinh property</p>
 <pre>for (key in object) {
@@ -1458,6 +2373,7 @@ d
 <</pre>
 <p><b>Note</b>: "in" tra ra gia tri, "of" vong lap</p>
 <h2>JavaScript For Of----</h2>
+<p>lap qua value</p>
 <pre>for (variable of iterable) {
   // code block to be executed
 }</pre>
@@ -2524,6 +3440,52 @@ wrong: myCalculator(5, 5, myDisplayer());</pre>
 
 
 <h1 class="body">JS HTML DOM</h1>
+
+<!-- DOM Elements start-->
+<h2 class="body">DOM Elements</h2>
+<ul>
+	<li>id -> getElementById()</li>
+	<li>tag name -> getElementsByTagName()</li>
+	<pre>document.getElementsByTagName("p");</pre>
+	<li>class name -> getElementsByClassName()</li>
+	<li>CSS selectors -> querySelectorAll()</li>
+	<pre>querySelectorAll("p.intro")</pre>
+	<li>HTML object collections</li>
+</ul>
+<pre>document.forms["frm1"].elements[i].value</pre>
+<form id="frm1DomElements1">
+	First name: <input type="text" name="fname" value="Donald"><br>
+	Last name: <input type="text" name="lname" value="Duck"><br>
+	<input type="submit" value="Submit">
+</form>
+<p id="pDomElements1"></p>
+<script type="text/javascript">
+	let iDomElements1;
+	let textDomElements1 ="";
+	for (iDomElements1 = 0; iDomElements1<document.forms['frm1DomElements1'].length; iDomElements1++) {
+		textDomElements1 += document.forms['frm1DomElements1'].elements[iDomElements1].value +"<br>"; 
+	}
+	document.getElementById('pDomElements1').innerHTML=textDomElements1
+</script>
+	<pre>
+	- document.anchors
+	- document.body
+	- document.documentElement
+	- document.embeds
+	- document.forms
+	- document.head
+	- document.images
+	- document.links
+	- document.scripts
+	- document.title</pre>
+
+<!-- DOM Elements end-->
+<!-- DOM HTML start -->
+
+<h2 class="body">DOM HTML</h2>
+<h2 class="body">DOM FORMS</h2>
+<h2 class="body">DOM CSS</h2>
+<h2 class="body">DOM Animations</h2>
 <h2 class="body">DOM Events</h2>
 <h4>onclick</h4>
 <pre>onclick="changeText(this)">Click on this text!</pre>
@@ -2647,7 +3609,7 @@ function functexteventListener2() {
 <h1 class="body">JS Browser BOM</h1>
 
 <!-- JS Timing start-->
-
+DOM Event Listener
 <h2 class="body">JS Timing</h2>
 <h4>setTimeout(function,milliseconds)</h4>
 <p>thuc hien function sau 1 thoi gian chi dinh</p>
